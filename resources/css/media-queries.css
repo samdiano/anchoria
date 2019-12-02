@@ -1,0 +1,297 @@
+
+/* 
+##Device = Desktops
+##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1441px) {
+
+	.image-subtract {
+		display: none;
+		bottom: 0; left: 0
+	}
+}
+
+
+@media (min-width: 1281px) and (max-width: 1440px) {
+
+	.image-subtract {
+		display: block;
+	}
+
+}
+
+/* 
+##Device = Laptops, Desktops
+##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+	.image-subtract {
+		display: block;
+		bottom: 0; left: 0
+	}
+}
+
+/* 
+##Device = Tablets, Ipads (portrait)
+##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+	.home-btn-padding {
+		padding: 15px 35px !important;
+	}
+
+	.floating-landing-logo {
+		right: 0; top: 60%; opacity: 0.3; width: 20%; z-index: 2;
+	}
+
+
+}
+
+/* 
+##Device = Tablets, Ipads (landscape)
+##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+	//CSS
+
+}
+
+/* 
+##Device = Low Resolution Tablets, Mobiles (Landscape)
+##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+	.slick-slide img {
+		display: inline !important;
+	}
+
+	.image-subtract {
+		display: none;
+	}
+
+	.onhover:hover {
+		-webkit-transform: translateY(-1px) scale(1.02);
+		transform: translateY(-5px) scale(1);
+		/*	border: 2px solid #006A5A !important;*/
+	}
+
+	.onhover, .hover {
+		-webkit-animation-name: fadeUp;
+		animation-name: fadeUp;
+		-webkit-animation-duration: 1s;
+		animation-duration: 1s;
+	}
+
+	.onhover, .hover {
+		-webkit-transition: all 0.25s ease;
+		transition: all 0.25s ease;
+	}
+
+	.md-border-right {
+		border-right: 0px solid #dee2e6;
+	}
+
+	#myGovernanceTab {
+		justify-content: center !important;
+	}
+
+	.home-btn-padding {
+		padding: 15px 50px !important;
+	}
+
+	.vertical-5, .vertical-9{
+		margin-top: 1rem !important;
+	}
+
+	.vertical-8{
+		margin-top: auto;
+	}
+
+	.media-banner {
+		top: auto;
+	}
+
+	.portfolio-banner {
+		top: auto;
+		transform: rotate(0deg);
+	}
+
+	.contact-banner {
+		top: auto;
+	}
+
+	.about-banner-img {
+		top: auto;
+		transform: rotate(0deg);
+	}
+
+	.section-1-home {
+		background-image: url(../img/general_header_banner.jpg);
+		height: auto;
+	}
+
+	li.active-now .nav-link{
+		color: #333 !important;
+		border-bottom: 3px solid #EB0028 !important;
+	}
+
+	.border-right-red {
+		border-right: 0px solid #EB0028 !important;
+		border-radius: 0px;
+	}
+
+}
+
+/* 
+##Device = Most of the Smartphones Mobiles (Portrait)
+##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+	.slick-slide img {
+		display: inline !important;
+	}
+
+	.image-subtract {
+		display: none;
+	}
+	.onhover:hover {
+		-webkit-transform: translateY(-1px) scale(1.02);
+		transform: translateY(-5px) scale(1);
+		/*	border: 2px solid #006A5A !important;*/
+	}
+
+	.onhover, .hover {
+		-webkit-animation-name: fadeUp;
+		animation-name: fadeUp;
+		-webkit-animation-duration: 1s;
+		animation-duration: 1s;
+	}
+
+	.onhover, .hover {
+		-webkit-transition: all 0.25s ease;
+		transition: all 0.25s ease;
+	}
+
+	.md-border-right {
+		border-right: 0px solid #dee2e6;
+	}
+
+	#myGovernanceTab {
+		justify-content: center !important;
+	}
+
+	.vertical-5, .vertical-9{
+		margin-top: 1rem !important;
+		margin-bottom: 3rem;
+	}
+
+	.vertical-8{
+		margin-top: 15px;
+		margin-bottom: 3rem;
+	}
+
+	.font-41 {
+		font-size: 22px;
+	}
+	.media-banner {
+		top: auto;
+	}
+
+	.portfolio-banner {
+		top: auto;
+		transform: rotate(0deg);
+	}
+
+	.contact-banner {
+		top: auto !important;
+	}
+
+	.about-banner-img {
+		top: 44px;
+		transform: rotate(0deg);
+	}
+
+	.home-btn-padding {
+		padding: 15px 50px !important;
+	}
+
+	/* About us, investor tabs */
+
+	#myTabJust, #investor_tab {
+
+		display: -ms-flexbox;
+		display: block !important;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		padding-left: 0;
+		margin-bottom: 0;
+		list-style: none;
+		text-align: center !important;
+	}
+
+	#myTabJust li, #investor_tab li {
+		display: block;
+	}
+
+
+	.section-1-home {
+		background-image: url(../img/general_header_banner.jpg);
+		/*    background-position: bottom;*/
+		height: auto;
+	}
+
+	li.active-now .nav-link{
+		color: #333 !important;
+		border-bottom: 3px solid #EB0028 !important;
+	}
+
+	.displace-mutual-tab {
+		position: initial !important;
+		top: -7% !important;
+		border-radius: 3px !important;
+	}
+
+	.mutual-margin {
+		background-color: transparent !important;
+		box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1) !important;
+		margin: 0 auto;
+	}
+
+	.mutual-margin li {
+		margin: 0 auto;
+	}
+
+	.border-right-red {
+		border-right: 0px solid #EB0028 !important;
+		border-radius: 0px;
+	}
+
+	.green-card-section {
+		background: #F7FFFE;
+		box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.04);
+		border-radius: 3px;
+		border-radius: 5px;
+		position: relative;
+		top: 0%;
+		margin-bottom: 50px;
+		padding: 25px !important;
+	}
+
+	.apostrophe-1 {
+		position: absolute;
+		top: -55px;
+		left: 10px;
+	}
+
+}
