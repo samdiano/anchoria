@@ -11,6 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PagesController@index')->name('welcome');
+Auth::routes();
+
+
+
+
+/*
+Admin routes
+*/
+
+Route::get('/admin', 'AdminController@index')->name('admin');
+Route::get('/admin/landing', 'AdminController@landing')->name('landing');
