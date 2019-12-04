@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Landing;
 
 class PagesController extends Controller
 {
@@ -13,7 +14,19 @@ class PagesController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $landing = Landing::find(1);
+        return view('index', ['landing' => $landing]);
+    }
+
+    /**
+     * Show the company's who we are page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function who()
+    {
+        $landing = Landing::find(1);
+        return view('who', ['landing' => $landing]);
     }
 
 }

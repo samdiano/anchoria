@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="{{ asset('css/media-queries.css') }}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link href="{{ asset('css/animate.min.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('css/Assets/animate.min.css') }}" type="text/css" rel="stylesheet" />
 
 </head>
 
@@ -285,11 +285,12 @@
         <div class="container">
             <div class="row justify-content-center mt-md-5 pb-4">
                 <div class="col-md-7">
-                    <h3 class="text-dark gotham-bold font-weight-bold text-center font-35">Secure your future</h3>
+                    {{-- <h3 class="text-dark gotham-bold font-weight-bold text-center font-35">Secure your future</h3>
                     <p class="text-center">We provide comprehensive financial planning advice and wealth management
                         services.
                         Our team is made up of experienced wealth advisors to help you make the right investment
-                        decisions.</p>
+                        decisions.</p> --}}
+                        {!!$landing->hero!!}
                 </div>
             </div>
         </div>
@@ -336,7 +337,9 @@
         <div class="row justify-content-center mt-3">
             <div class="col-md-6">
                 <h3 class="purple-text-default gotham-bold font-weight-bold text-center font-35">Our Services</h3>
-                <p class="text-center">We provide bespoke asset management services to our clients.</p>
+                <p class="text-center">{!!$landing->services!!}</p>
+
+                
             </div>
         </div>
 

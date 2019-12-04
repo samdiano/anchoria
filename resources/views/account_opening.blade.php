@@ -11,16 +11,18 @@
         <link rel="shortcut icon" href="img/favicon.png" />
         <link rel="apple-touch-icon" href="img/favicon.png" />
 
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/slick.css">
-        <link rel="stylesheet" href="css/slick-theme.css">
-        <link rel="stylesheet" href="css/fonts.css">
-        <link rel="stylesheet" href="css/Assets/bootstrap.min.css">
-        <link rel="stylesheet" href="css/media-queries.css">
-
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-        <link href="css/Assets/animate.min.css" type="text/css" rel="stylesheet" />
-
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/slick.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/slick-theme.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/fonts.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/Assets/bootstrap.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/mdb.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/mdb-theme.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/media-queries.css') }}">
+	
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+		<link href="{{ asset('css/Assets/animate.min.css') }}" type="text/css" rel="stylesheet" />
+	
     </head>
 
     <body>
@@ -31,7 +33,7 @@
             <div class="container-fluid">
                 <!-- Navbar brand -->
 
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index">
                     <img src="img/subs-white-Anchoria.png" width="160" class="img-fluid d-none d-md-block d-lg-block" id="main_logo" alt="VFD Group Logo">
                     <img src="img/aamblacklogo.png" width="160" class="img-fluid d-lg-none" id="main_logo" alt="VFD Group Logo">
                 </a>
@@ -46,7 +48,7 @@
 
 
                         <li class="nav-item px-md-2 my-2 my-md-0">
-                            <a class="nav-link bold  " href="index.html">Home</a>
+                            <a class="nav-link bold  " href="/">Home</a>
                         </li>
 
 
@@ -55,9 +57,9 @@
                                 About Us
                             </a>
                             <div class="dropdown-menu nav-dropdown-menu" aria-labelledby="aboutDropdown">
-                                <a class="dropdown-item" href="who.html">Who We Are</a>
+                                <a class="dropdown-item" href="who">Who We Are</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="leadership.html">Leadership</a>
+                                <a class="dropdown-item" href="leadership">Leadership</a>
                             </div>
                         </li>
 
@@ -66,36 +68,36 @@
                                 Products & Services
                             </a>
                             <div class="dropdown-menu nav-dropdown-menu" aria-labelledby="productDropdown">
-                                <a class="dropdown-item" href="multifamily.html">Multi-Family Office</a>
+                                <a class="dropdown-item" href="multifamily">Multi-Family Office</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="portfolio.html">Portfolio Management</a>
+                                <a class="dropdown-item" href="portfolio">Portfolio Management</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="liquidity.html">Liquidity Management</a>
+                                <a class="dropdown-item" href="liquidity">Liquidity Management</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="structured_products.html">Structured Products</a>
+                                <a class="dropdown-item" href="structured_products">Structured Products</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="mutual_funds.html">Mutual Funds</a>
+                                <a class="dropdown-item" href="mutual_funds">Mutual Funds</a>
                             </div>
                         </li>
 
                         <li class="nav-item px-md-2 my-2 my-md-0 active-now">
-                            <a class="nav-link bold" href="account_opening.html">Open an account</a>
+                            <a class="nav-link bold" href="account_opening">Open an account</a>
                         </li>
 
                         <li class="nav-item px-md-2 my-2 my-md-0">
-                            <a class="nav-link bold" href="research.html">Research</a>
+                            <a class="nav-link bold" href="research">Research</a>
                         </li>
 
                         <li class="nav-item px-md-2 my-2 my-md-0 ">
-                            <a class="nav-link bold" href="faq.html">FAQs</a>
+                            <a class="nav-link bold" href="faq">FAQs</a>
                         </li>
 
                         <li class="nav-item px-md-2 my-2 my-md-0">
-                            <a class="nav-link bold" href="contact_us.html">Contact Us</a>
+                            <a class="nav-link bold" href="contact_us">Contact Us</a>
                         </li>
 
                         <li class="nav-item px-md-2 my-2 my-md-0 active-link">
-                            <a class="nav-link bold" href="login.html">Login</a>
+                            <a class="nav-link bold" href="login">Login</a>
                         </li>
 
                         <li class="nav-item pl-md-3 pr-md-5 my-2 my-md-0">
@@ -325,14 +327,14 @@
                             <p class="text-center text-md-left text-dark font-weight-bold my-3 spacing-2"> Quick Links</p>
 
                             <ul class="list-unstyled">
-                                <li class="text_primary mb-2"><a href="who.html" class="">Who We Are</a></li>
-                                <li class="text_primary mb-2"><a href="leadership.html" class="">Leadership</a></li>
+                                <li class="text_primary mb-2"><a href="who" class="">Who We Are</a></li>
+                                <li class="text_primary mb-2"><a href="leadership" class="">Leadership</a></li>
 
-                                <li class="text_primary mb-2"><a href="portfolio.html" class="">Portfolio Management</a></li>
-                                <li class="text_primary mb-2"><a href="multifamily.html" class="">Multi-family Office</a></li>
-                                <li class="text_primary mb-2"><a href="account_opening.html" class="">Open An Account</a></li>
+                                <li class="text_primary mb-2"><a href="portfolio" class="">Portfolio Management</a></li>
+                                <li class="text_primary mb-2"><a href="multifamily" class="">Multi-family Office</a></li>
+                                <li class="text_primary mb-2"><a href="account_opening" class="">Open An Account</a></li>
                                 <li class="text_primary mb-2"><a href="uploads/Anchoria%20Corporate%20Profile.pdf" class="">Corporate Information</a></li>
-                                <li class="text_primary mb-2"><a href="mutual_funds.html" class="">Mutual Funds</a></li>
+                                <li class="text_primary mb-2"><a href="mutual_funds" class="">Mutual Funds</a></li>
 
                             </ul>
 
@@ -348,7 +350,7 @@
 
                                 <li class="text_primary mb-2"><a href="#" class="">Fixed Income</a></li>
                                 <li class="text_primary mb-2"><a href="#" class="">Past Reports</a></li>
-                                <li class="text_primary mb-2"><a href="faq.html" class="">FAQs</a></li>
+                                <li class="text_primary mb-2"><a href="faq" class="">FAQs</a></li>
 
                             </ul>
 

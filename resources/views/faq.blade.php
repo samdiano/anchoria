@@ -11,16 +11,18 @@
 		<link rel="shortcut icon" href="img/favicon.png" />
 		<link rel="apple-touch-icon" href="img/favicon.png" />
 
-		<link rel="stylesheet" href="css/style.css">
-		<link rel="stylesheet" href="css/slick.css">
-		<link rel="stylesheet" href="css/slick-theme.css">
-		<link rel="stylesheet" href="css/fonts.css">
-		<link rel="stylesheet" href="css/Assets/bootstrap.min.css">
-		<link rel="stylesheet" href="css/media-queries.css">
-
+		<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/slick.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/slick-theme.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/fonts.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/Assets/bootstrap.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/mdb.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/mdb-theme.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/media-queries.css') }}">
+	
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-		<link href="css/Assets/animate.min.css" type="text/css" rel="stylesheet" />
-
+		<link href="{{ asset('css/Assets/animate.min.css') }}" type="text/css" rel="stylesheet" />
+	
 		<style>
 			.card {
 				box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.1) !important;
