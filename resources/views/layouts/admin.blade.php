@@ -195,23 +195,16 @@
 
                 </div>
                 <div id="sidebar-menu">
-                    <ul>                      
+                    <ul>
                         {{-- <li class="text-muted menu-title">Pages</li> --}}
 
-                        <li class="has_sub">
-                            <a href="javascript:void(0);" class="waves-effect"><i
-                                    class="zmdi zmdi-layers"></i><span>Landing Page</span>
-                                <span class="menu-arrow"></span></a>
-                            <ul class="list-unstyled">
-                                <li><a href="{{ url('admin/landing') }}">Landing Page</a></li>
-                                <li><a href="{{ url('admin/sliders') }}">Sliders</a></li>
-                                <li><a href="{{ url('admin/services') }}">Services</a></li>
-                                
-                            </ul>
-
+                        <li>
+                            <a href="/admin/landing" class="waves-effect"><i class="zmdi zmdi-layers"></i>
+                                <span> Landing Page </span> </a>
                         </li>
                         <li class="has_sub">
-                            <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-case"></i><span>About Us</span>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-case"></i><span>About
+                                    Us</span>
                                 <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="{{ url('admin/who') }}">Who we are</a></li>
@@ -234,7 +227,7 @@
                             </ul>
 
                         </li>
-                        
+
 
 
                         {{-- <li class="has_sub">
@@ -243,42 +236,41 @@
                                 <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="{{ url('admin/terms') }}">Terms</a></li>
-                                <li><a href="{{ url('admin/disclosure') }}">Disclosure</a></li>
-                                <li><a href="{{ url('admin/policy') }}">Policy</a></li>
-                            </ul>
+                        <li><a href="{{ url('admin/disclosure') }}">Disclosure</a></li>
+                        <li><a href="{{ url('admin/policy') }}">Policy</a></li>
+                    </ul>
 
-                        </li> --}}
+                    </li> --}}
 
-                        {{-- <li>
+                    {{-- <li>
                             <a href="/admin/profile" class="waves-effect"><i class="zmdi zmdi-layers"></i>
                                 <span> VFD Profile </span> </a>
                         </li> --}}
 
-                        <li>
-                            <a href="/admin/contact" class="waves-effect"><i class="zmdi zmdi-layers"></i>
-                                <span> Contact Page </span> </a>
-                        </li>
+                    <li>
+                        <a href="/admin/contact" class="waves-effect"><i class="zmdi zmdi-layers"></i>
+                            <span> Contact Page </span> </a>
+                    </li>
 
 
-                        <li>
-                            <a href="/admin/subscribers" class="waves-effect"><i class="zmdi zmdi-layers"></i>
-                                <span> Subscribers </span> </a>
-                        </li>
+                    <li>
+                        <a href="/admin/subscribers" class="waves-effect"><i class="zmdi zmdi-layers"></i>
+                            <span> Subscribers </span> </a>
+                    </li>
 
 
-                        {{-- <li>
+                    {{-- <li>
                         <a href="/" class="waves-effect"><i class="zmdi zmdi-view-dashboard"></i>
                             <span> Users </span> </a>
                     </li> --}}
 
-                        <li>
-                            <a href="/"
-                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                                class="waves-effect"><i class="zmdi zmdi-power"></i> <span> Logout </span> </a>
-                            <form id="logout-form" action="/logout" method="POST" style="display: none;">
-                                {{ csrf_field() }}
-                            </form>
-                        </li>
+                    <li>
+                        <a href="/" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                            class="waves-effect"><i class="zmdi zmdi-power"></i> <span> Logout </span> </a>
+                        <form id="logout-form" action="/logout" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </li>
 
                     </ul>
                     <div class="clearfix"></div>
