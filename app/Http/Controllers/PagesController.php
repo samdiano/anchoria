@@ -29,4 +29,114 @@ class PagesController extends Controller
         return view('who', ['landing' => $landing]);
     }
 
+    /**
+     * Show the company's who we are page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function leadership()
+    {
+        $landing = Landing::find(1);
+        return view('leadership', ['landing' => $landing]);
+    }
+
+    /**
+     * Show the company's who we are page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function liquidity()
+    {
+        $landing = Landing::find(1);
+        return view('liquidity', ['landing' => $landing]);
+    }
+
+    /**
+     * Show the company's who we are page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function multifamily()
+    {
+        $landing = Landing::find(1);
+        return view('multifamily', ['landing' => $landing]);
+    }
+
+    /**
+     * Show the company's who we are page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function mutual_funds()
+    {
+        $landing = Landing::find(1);
+        return view('mutual_funds', ['landing' => $landing]);
+    }
+
+    /**
+     * Show the company's who we are page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function portfolio()
+    {
+        $landing = Landing::find(1);
+        return view('portfolio', ['landing' => $landing]);
+    }
+
+    /**
+     * Show the company's who we are page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function research()
+    {
+        $landing = Landing::find(1);
+        return view('research', ['landing' => $landing]);
+    }
+
+    /**
+     * Show the company's who we are page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function structured_products()
+    {
+        $landing = Landing::find(1);
+        return view('structured_products', ['landing' => $landing]);
+    }
+
+    /**
+     * Show the company's who we are page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function faq()
+    {
+        $landing = Landing::find(1);
+        return view('faq', ['landing' => $landing]);
+    }
+
+    /**
+     * Show the company's who we are page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function account_opening()
+    {
+        $landing = Landing::find(1);
+        return view('account_opening', ['landing' => $landing]);
+    }
+
+    /**
+     * Show the company's who we are page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function contact_us()
+    {
+        $landing = Landing::find(1);
+        return view('contact_us', ['landing' => $landing]);
+    }
+
 }

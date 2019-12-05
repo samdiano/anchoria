@@ -17,6 +17,8 @@ class CreateWhosTable extends Migration
             $table->bigIncrements('id');
             $table->text('hero');
             $table->string('quote');
+            $table->string('side_text');
+            $table->string('image_path');
             $table->text('vision');
             $table->text('mission');
             $table->text('integrity');

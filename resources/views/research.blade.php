@@ -48,63 +48,60 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
 
-
-                    <li class="nav-item px-md-2 my-2 my-md-0">
-                        <a class="nav-link bold  " href="index.html">Home</a>
-                    </li>
-
-
-
-                    <li class="nav-item dropdown px-md-2 my-2 my-md-0">
-                        <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            About Us
-                        </a>
-                        <div class="dropdown-menu nav-dropdown-menu" aria-labelledby="aboutDropdown">
-                            <a class="dropdown-item" href="who.html">Who We Are</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="leadership.html">Leadership</a>
-                        </div>
-                    </li>
-
-                    <li class="nav-item dropdown px-md-2 my-2 my-md-0">
-                        <a class="nav-link dropdown-toggle" href="#" id="productDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Products & Services
-                        </a>
-                        <div class="dropdown-menu nav-dropdown-menu" aria-labelledby="productDropdown">
-                            <a class="dropdown-item" href="multifamily.html">Multi-Family Office</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="portfolio.html">Portfolio Management</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="liquidity.html">Liquidity Management</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="structured_products.html">Structured Products</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="mutual_funds.html">Mutual Funds</a>
-                        </div>
-                    </li>
-
-
-                    <li class="nav-item px-md-2 my-2 my-md-0">
-                        <a class="nav-link bold" href="account_opening.html">Open an account</a>
-                    </li>
-
-                    <li class="nav-item px-md-2 my-2 my-md-0 active-now">
-                        <a class="nav-link bold" href="research.html">Research</a>
-                    </li>
-
-                    <li class="nav-item px-md-2 my-2 my-md-0 ">
-                        <a class="nav-link bold" href="faq.html">FAQs</a>
-                    </li>
-
-                    <li class="nav-item px-md-2 my-2 my-md-0">
-                        <a class="nav-link bold" href="contact_us.html">Contact Us</a>
-                    </li>
-
-                    <li class="nav-item px-md-2 my-2 my-md-0 active-link">
-                        <a class="nav-link bold" href="login.html">Login</a>
-                    </li>
+                    
+                        <li class="nav-item px-md-2 my-2 my-md-0">
+                                <a class="nav-link bold" href="{{url('/')}}">Home</a>
+                            </li>
+        
+                            <li class="nav-item dropdown px-md-2 my-2 my-md-0">
+                                <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    About Us
+                                </a>
+                                <div class="dropdown-menu nav-dropdown-menu" aria-labelledby="aboutDropdown">
+                                    <a class="dropdown-item" href="{{url('who')}}">Who We Are</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="{{url('leadership') }}">Leadership</a>
+                                </div>
+                            </li>
+        
+                            <li class="nav-item dropdown px-md-2 my-2 my-md-0">
+                                <a class="nav-link dropdown-toggle" href="#" id="productDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Products & Services
+                                </a>
+                                <div class="dropdown-menu nav-dropdown-menu" aria-labelledby="productDropdown">
+                                    <a class="dropdown-item" href="{{url('multifamily')}}">Multi-Family Office</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="{{url('portfolio')}}">Portfolio Management</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="{{url('liquidity')}}">Liquidity Management</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="{{url('structured_products')}}">Structured Products</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="{{url('mutual_funds')}}">Mutual Funds</a>
+                                </div>
+                            </li>
+        
+                            <li class="nav-item px-md-2 my-2 my-md-0">
+                                <a class="nav-link bold" href="{{url('account_opening')}}">Open an account</a>
+                            </li>
+        
+                            <li class="nav-item px-md-2 my-2 my-md-0 active-now">
+                                <a class="nav-link bold" href="{{url('research')}}">Research</a>
+                            </li>
+        
+                            <li class="nav-item px-md-2 my-2 my-md-0 ">
+                                <a class="nav-link bold" href="{{url('faq')}}">FAQs</a>
+                            </li>
+        
+                            <li class="nav-item px-md-2 my-2 my-md-0">
+                                <a class="nav-link bold" href="{{url('contact_us')}}">Contact Us</a>
+                            </li>
+        
+                            <li class="nav-item px-md-2 my-2 my-md-0 active-link">
+                                <a class="nav-link bold" href="{{url('login')}}">Login</a>
+                            </li>
 
                     <li class="nav-item pl-md-3 pr-md-5 my-2 my-md-0">
                         <a class="nav-link bold" href="javascript.void()" data-toggle="modal"

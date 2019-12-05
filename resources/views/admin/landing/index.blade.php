@@ -27,9 +27,10 @@
                                                 href="{{ url('admin/sliders') }}">Add Slider </a>
                                         </div>
                                         <label class="control-label col-md-2 col-sm-3">
-                                            Sliders
+                                            
                                         </label>
                                         <div class="col-md-offset-2 ">
+                                                <h3>Sliders</h3>
                                             @foreach ($sliders as $slider)
                                             <div class="col-md-2 panel panel-default">
                                                 <img src="{{url($slider->image_path)}}" style="height:200px"
@@ -47,18 +48,20 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-3">
-                                        Hero Message
+                                        
                                     </label>
                                     <div class="col-md-9 col-sm-9">
+                                        <h3>Hero Message</h3>
                                         <textarea class="form-control" name="hero">{{$landing->hero}}</textarea>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-3">
-                                        Our Services (Description)
+                                        
                                     </label>
                                     <div class="col-md-9 col-sm-9">
+                                            <h3>Our Services (Description)</h3>
                                         <textarea class="form-control" name="services">{{$landing->services}}</textarea>
                                     </div>
                                 </div>
@@ -70,9 +73,10 @@
                                         </a>
                                     </div>
                                     <label class="control-label col-md-2 col-sm-3">
-                                        Services
+                                        
                                     </label>
                                     <div class="col-md-offset-2">
+                                        <h3>Services</h3>
                                         {{-- <div class="panel-group"> --}}
                                             @foreach ($services as $service)
                                             <div class="col-md-2 panel panel-default text-center">

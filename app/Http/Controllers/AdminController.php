@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Landing;
 use App\Slider;
 use App\Service;
+use App\Who;
 
 class AdminController extends Controller
 {
@@ -93,7 +94,7 @@ class AdminController extends Controller
     }
 
     /**
-     * Show the admin landing page
+     * Show the admin service page
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
@@ -103,7 +104,7 @@ class AdminController extends Controller
         return view('admin.landing.service', ['landing' => $landing]);
     }
     /**
-     * Update Landing Page
+     * Update service Page
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
@@ -126,6 +127,59 @@ class AdminController extends Controller
         
         if ($service->save()) {
             return redirect('admin/landing')->with(['landing' => $landing, 'alert' => ' Content updated succesfully']);
+        } else {
+            return redirect()->back()->withErrors($validator);
+        }
+    }
+
+    /**
+     * Show the admin who are we page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function who()
+    {
+        $who = Who::find(1);
+        return view('admin.who.who', ['who' => $who]);
+    }
+
+    /**
+     * Update who Page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function whoPost(Request $request)
+    {
+        $validator = $this->validate($request, [
+            'hero' => 'required',
+            'side_text' => 'required',
+            'quote' => 'required',
+            'vision' => 'required',
+            'mission' => 'required',
+            'integrity' => 'required',
+            'client_focus' => 'required',
+            'leadership' => 'required',
+            'collaboration' => 'required',
+        ]);
+        // $who =  new Who();
+        $who = Who::find(1);
+
+        if ($request->hasFile('image')) {
+            $filename = $request->image->store('images', 'public');
+            $who->image_path = $filename;
+        }
+        $who->hero = $request->hero;
+        $who->side_text = $request->side_text;
+        $who->quote = $request->quote;
+        $who->vision = $request->vision;
+        $who->mission = $request->mission;
+        $who->integrity = $request->integrity;
+        $who->client_focus = $request->client_focus;
+        $who->leadership = $request->leadership;
+        $who->collaboration = $request->collaboration;
+        
+        if ($who->save()) {
+            return redirect('admin/who')->with(['alert' => ' Content updated succesfully']);
         } else {
             return redirect()->back()->withErrors($validator);
         }
