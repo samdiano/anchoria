@@ -32,8 +32,8 @@
                                         <div class="col-md-offset-2 ">
                                             @foreach ($sliders as $slider)
                                             <div class="col-md-2 panel panel-default">
-                                                <img src="{{url($slider->image_path)}}" class="img img-responsive"
-                                                    alt="image">
+                                                <img src="{{url($slider->image_path)}}" style="height:200px"
+                                                    class="img img-responsive" alt="image">
                                                 <span class="row" style="margin: 5%; padding: 5%; display:flex; align-items: center;
                                                 justify-content: center;">
                                                     <i class="btn btn-info fa fa-pencil"></i>
@@ -62,23 +62,23 @@
                                         <textarea class="form-control" name="services">{{$landing->services}}</textarea>
                                     </div>
                                 </div>
-                                <div class="col-md-offset-2 m-b-30">
-                                    <a class="btn btn-primary col-offset-2" href="{{ url('admin/services') }}">Add
-                                        Services
-                                    </a>
-                                </div>
 
                                 <div class="container m-b-30">
+                                    <div class="col-md-offset-2 m-b-30">
+                                        <a class="btn btn-primary col-offset-2" href="{{ url('admin/services') }}">Add
+                                            Services
+                                        </a>
+                                    </div>
                                     <label class="control-label col-md-2 col-sm-3">
                                         Services
                                     </label>
                                     <div class="col-md-offset-2">
-                                        <div class="panel-group">
+                                        {{-- <div class="panel-group"> --}}
                                             @foreach ($services as $service)
                                             <div class="col-md-2 panel panel-default text-center">
-                                                <img src="{{url($service->image_path)}}" class="img img-responsive"
-                                                    alt="image">
-                                                <b>{{$service->name}}</b><br />
+                                                <img src="{{url($service->image_path)}}" style="height:200px"
+                                                    class="img img-responsive" alt="image">
+                                            <p><b>{{$service->name}}</b></p><br />
                                                 {{$service->sub_text}}
                                                 <span class="row" style="margin: 5%; padding: 5%; display:flex; align-items: center;
                                                     justify-content: center;">
@@ -87,7 +87,7 @@
                                                 </span>
                                             </div>
                                             @endforeach
-                                        </div>
+                                        {{-- </div> --}}
                                     </div>
                                 </div>
 
