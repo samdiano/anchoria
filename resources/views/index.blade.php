@@ -32,8 +32,8 @@
             <!-- Navbar brand -->
 
             <a class="navbar-brand" href="index">
-                <img src="{{ asset('img/subs-white-Anchoria.png') }}" width="160" class="img-fluid d-none d-md-block d-lg-block"
-                    id="main_logo" alt="VFD Group Logo">
+                <img src="{{ asset('img/subs-white-Anchoria.png') }}" width="160"
+                    class="img-fluid d-none d-md-block d-lg-block" id="main_logo" alt="VFD Group Logo">
                 <img src="{{ asset('img/aamblacklogo.png') }}" width="160" class="img-fluid d-lg-none" id="main_logo"
                     alt="VFD Group Logo">
             </a>
@@ -59,7 +59,7 @@
                             About Us
                         </a>
                         <div class="dropdown-menu nav-dropdown-menu" aria-labelledby="aboutDropdown">
-                        <a class="dropdown-item" href="{{url('who')}}">Who We Are</a>
+                            <a class="dropdown-item" href="{{url('who')}}">Who We Are</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{url('leadership') }}">Leadership</a>
                         </div>
@@ -118,28 +118,27 @@
     <section class="bg-slides">
         <div class="container-fluid no-padding">
             <div class="myslid1">
-
+                @foreach ($sliders as $slider)
                 <!--					slide 1-->
-                <div class="height_normalize height_320px" style="background:linear-gradient(rgba(0, 0, 0, 0.58), rgba(9, 8, 8, 0.51)), rgba(0, 0, 0, 0.55) url(img/website_assets/HomePage/Sliders/Want-to-get.jpg);
+                <div class="height_normalize height_320px" style="background:linear-gradient(rgba(0, 0, 0, 0.58), rgba(9, 8, 8, 0.51)), rgba(0, 0, 0, 0.55) url({{$slider->image_path}});
                                                                       background-position: top center;
                                                                       background-size: cover;
                                                                       background-repeat: no-repeat;">
 
                     <div class="row justify-content-center pb-4 pt-5">
                         <div class="col-md-6 text-center">
-                            <h3 class="text-white gotham-bold font-weight-bld text-center mt-5 pt-5 mb-4">Want to get
-                                started? </h3>
+                            <h3 class="text-white gotham-bold font-weight-bld text-center mt-5 pt-5 mb-4">{!!$slider->main!!} </h3>
                             <p class="text-white text-center">
-                                We create series of opportunities through unlimited investment plans.</p>
+                                {!!$slider->sub!!}</p>
 
-                            <a href="contact_us"
-                                class="btn vfd-btn-red py-2 px-5 weight-semi-bold rounded mx-md-0 waves-effect waves-light">Get
-                                Started</a>
+                            <a href="{{$slider->button_link}}"
+                                class="btn vfd-btn-red py-2 px-5 weight-semi-bold rounded mx-md-0 waves-effect waves-light">{{$slider->button_text}}</a>
                         </div>
                     </div>
                 </div>
+                @endforeach
 
-
+{{-- 
                 <!--					slide 2-->
                 <div class="height_normalize height_320px" style="background: linear-gradient(rgba(0, 0, 0, 0.58), rgba(9, 8, 8, 0.51)), rgba(0, 0, 0, 0.55) url(img/website_assets/HomePage/Sliders/wealth_management.jpg);
                                                                       background-position: center;
@@ -212,13 +211,13 @@
                                 Started</a>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>
 
 
-    <div class="section-1-home d-none">
+    {{-- <div class="section-1-home d-none">
         <div class="container">
             <div class="row justify-content-center pb-4 pt-5">
                 <div class="col-md-6">
@@ -228,7 +227,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <div class="section-2-home">
         <div class="container position-relative">
@@ -290,7 +289,7 @@
                         services.
                         Our team is made up of experienced wealth advisors to help you make the right investment
                         decisions.</p> --}}
-                        {!!$landing->hero!!}
+                    {!!$landing->hero!!}
                 </div>
             </div>
         </div>
@@ -336,65 +335,31 @@
     <div class="container">
         <div class="row justify-content-center mt-3">
             <div class="col-md-6">
+                @if ($landing->services)
                 <h3 class="purple-text-default gotham-bold font-weight-bold text-center font-35">Our Services</h3>
                 <p class="text-center">{!!$landing->services!!}</p>
-
-                
+                @endif
             </div>
         </div>
 
         <div class="row mt-4 text-justify">
+            @foreach ($services as $service)
             <div class="col-md-3 my-3">
                 <div>
-                    <div style="background-image: url(img/imageuo.jpg);
+                    <div style="background-image: url({{$service->image_path}});
                                     background-repeat: no-repeat;
                                     background-size: cover;
                                     height: 180px;
                                     width: 100%;">
 
                     </div>
-                    <h5 class="mt-3 gotham-bold"><a class="text-dark" href="mutual_funds">Mutual Funds</a></h5>
-                    <p class="">Starting from as low as N5000, You can have access to mutual funds that will help grow
-                        your investments.</p>
+                    <h5 class="mt-3 gotham-bold"><a class="text-dark" href="mutual_funds">{{$service->name}}</a></h5>
+                    <p class="">{!!$service->description!!}</p>
                 </div>
             </div>
-
-            <div class="col-md-3 offset-md-1 my-3">
-                <div>
-                    <div style="background-image: url(img/277294_high_jpg_eci_rgb.jpg);
-                                    background-repeat: no-repeat;
-                                    background-size: cover;
-                                    height: 180px;
-                                    width: 100%;">
-
-                    </div>
-                    <h5 class="mt-3 gotham-bold"><a class="text-dark" href="portfolio">Portfolio Management</a>
-                    </h5>
-                    <p class="">We manage funds by investing in a range of financial instruments ranging from
-                        traditional asset classes to structured financial instruments in line with client’s investment
-                        policy.</p>
-                </div>
-            </div>
-
-            <div class="col-md-3 offset-md-1 my-3">
-                <div>
-                    <div style="background-image: url(img/cash-coins-money-259165.jpg);
-                                    background-repeat: no-repeat;
-                                    background-size: cover;
-                                    height: 180px;
-                                    width: 100%;">
-
-                    </div>
-                    <h5 class="mt-3 gotham-bold"><a class="text-dark" href="liquidity">Liquidity Management</a>
-                    </h5>
-                    <p class="">This service allows us to provide financial services to small, medium-sized business, as
-                        well as, large corporates and High Net-Worth individuals (HNIs), guiding them in ways to create
-                        and sustain value with their cashflow management.</p>
-                </div>
-            </div>
-
+            @endforeach
         </div>
-
+{{-- 
         <div class="row text-justify">
             <div class="col-md-3 my-3">
                 <div>
@@ -427,7 +392,7 @@
                         investment portfolio in a structured manner.</p>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
     </div>
 

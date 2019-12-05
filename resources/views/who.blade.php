@@ -118,9 +118,7 @@
                 <div class="col-md-7">
                     <h2 class="text-white gotham-bold font-weight-bld text-center mt-5 pt-5 mb-4 font-40">Who We Are
                     </h2>
-                    <p class="font-weight-light text-white font-17 text-center">We are an institution focused on
-                        partnering with our clients to achieve their life’s goal through financial intermediation. We
-                        currently service a broad spectrum of clients ranging from individuals to large corporates</p>
+                    <p class="font-weight-light text-white font-17 text-center">{!!$who->hero!!}</p>
                 </div>
             </div>
         </div>
@@ -182,33 +180,20 @@
         <div class="container">
             <div class="row justify-content-center mt-md-5 pb-5">
                 <div class="col-md-5">
-                    <img src="img/about_image.jpg" class="img-fluid mt-md-4" />
+                    <img src="{{$who->image_path}}" class="img-fluid mt-md-4" />
                 </div>
 
                 <div class="col-md-6 text-justify">
+                    @if($who->side_text)
                     <h5 class="text-dark gotham-bold font-weight-bold mb-3">Anchoria Asset Management</h5>
 
-                    <p class="font-14">Anchoria Asset Management (AAM) is a specialist provider of active investment
-                        products and services to institutional and individual investors. Our investment products focus
-                        on capital preservation while providing income and asset class diversification. We leverage the
-                        experience and financial strength of our core investors, VFD Group and Anchoria Investment &
-                        Securities, market position and intelligence of Nigerian financial, forex & real asset markets.
-                        This allows us focus on our clients’ best interests to build upon solid investment and risk
-                        management processes.
-                    </p>
-
-                    <p class="font-14">Grown out of Anchoria Investments & Securities, which was established in Nigeria
-                        In 1994, Anchoria Asset Management has built upon their legacy with innovative investment
-                        capabilities.</p>
-
-                    <p class="font-14">Anchoria Asset Management is incorporated by the Corporate Affairs Commission
-                        (CAC) as a Funds/Portfolio Manager and is licensed with the Securities and Exchange Commission
-                        (SEC).</p>
+                    <p class="font-14">{!!$who->side-text!!}</p>
+                    @endif
                 </div>
             </div>
         </div>
 
-
+        @if($who->quote)
         <div class="container position-relative">
             <div class="row justify-content-center">
                 <div class="col-md-10">
@@ -217,8 +202,7 @@
                             <div class="col-md-10 mt-4">
                                 <img src="img/green_apostrophe.png" class="img-fluid apostrophe-about">
                                 <p class="font-16 font-weight-bold text-green-deep">
-                                    To become our clients’ most valuable asset by providing them with relevant wealth
-                                    management solutions with the goal of their financial well-being.
+                                    {!!$who->quote!!}
                                 </p>
                             </div>
                         </div>
@@ -227,27 +211,29 @@
             </div>
         </div>
     </div>
+    @endif
 
     <div class="container">
 
         <div class="row justify-content-center vertical-8">
+            @if($who->vision)
             <div class="col-md-4 mt-5 mb-3">
                 <img src="img/red_apostrophe.png" class="img-fluid apostrophe-1">
                 <h4 class="vfd-text-red font-weight-bold">Our Vision</h4>
                 <p class="font-14 text-dark">
-                    To become our clients’ most valuable asset by providing them with relevant wealth management
-                    solutions with the goal of their financial well-being.
+                    {!!$who->vision!!}
                 </p>
             </div>
-
+            @endif
+            @if($who->vision)
             <div class="col-md-4 offset-md-1 mt-5 mb-3">
                 <img src="img/red_apostrophe.png" class="img-fluid apostrophe-1">
                 <h4 class="vfd-text-red font-weight-bold">Our Mission</h4>
                 <p class="font-14 text-dark">
-                    Create opportunities that protect our clients’ futures.
+                    {!!$who->mission!!}
                 </p>
             </div>
-
+            @endif
         </div>
 
     </div>
@@ -297,38 +283,41 @@
                 </div>
             </div>
             <div class="row justify-content-center mt-1">
+                @if ($who->integrity)
                 <div class="col-md-4 my-4">
                     <h4 class="text-dark font-weight-bold">Integrity</h4>
                     <p class="font-14 text-dark ml-md-3">
-                        We ensure that our goals are aligned with our clients, and our people are held to the highest
-                        ethical standards and moral character.
+                        {!!$who->integrity!!}
                     </p>
                 </div>
-
+                @endif
+                @if ($who->client_focus)
                 <div class="col-md-4 offset-md-1 my-4">
                     <h4 class="text-dark font-weight-bold">Client Focus</h4>
                     <p class="font-14 text-dark ml-md-3">
-                        We put the interests of our clients above all other considerations.
+                        {!!$who->client_focus!!}
                     </p>
                 </div>
-
+                @endif
             </div>
 
             <div class="row justify-content-center mt-1">
+                @if ($who->leadership)
                 <div class="col-md-4 my-4">
                     <h4 class="text-dark font-weight-bold">Leadership</h4>
                     <p class="font-14 text-dark ml-md-3">
-                        Our people deliver thought leadership, community engagement and innovative services through
-                        technology and modern practices.
+                        {!!$who->leadership!!}
                     </p>
                 </div>
-
+                @endif
+                @if ($who->collaboration)
                 <div class="col-md-4 offset-md-1 my-4">
                     <h4 class="text-dark font-weight-bold">Collaboration</h4>
                     <p class="font-14 text-dark ml-md-3">
-                        We work as a cohesive group in our pursuit to deliver value to our stakeholders.
+                        {!!$collaboration!!}
                     </p>
                 </div>
+                @endif
 
             </div>
 

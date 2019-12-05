@@ -426,6 +426,8 @@ class ComposerStaticInit290c25d92684eae5a0b4f0a6f753ce3f
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Landing' => __DIR__ . '/../..' . '/app/Landing.php',
+        'App\\Leadership' => __DIR__ . '/../..' . '/app/Leadership.php',
+        'App\\LeadershipPage' => __DIR__ . '/../..' . '/app/LeadershipPage.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',

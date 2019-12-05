@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title','Landing')
+@section('title','About us ')
 
 @section('content')
 <div class="content-page">

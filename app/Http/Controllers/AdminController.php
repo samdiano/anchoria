@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Landing;
 use App\Slider;
+use App\Leadership;
+use App\LeadershipPage;
 use App\Service;
 use App\Who;
 
@@ -184,4 +186,30 @@ class AdminController extends Controller
             return redirect()->back()->withErrors($validator);
         }
     }
+
+    /**
+     * Show the admin who are we page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function leadership()
+    {
+        $leadership = Leadership::all();
+        $page = LeadershipPage::find(1);
+        return view('admin.leadership.leadership', ['leadership' => $leadership, 'page' => $page]);
+    }
+
+
+    /**
+     * Show the admin who are we page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function leadershipAdd()
+    {
+        $leadership = Leadership::all();
+        $page = LeadershipPage::find(1);
+        return view('admin.leadership.new', ['leadership' => $leadership, 'page' => $page]);
+    }
+
 }

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Landing;
+use App\Service;
+use App\Slider;
+use App\Who;
 
 class PagesController extends Controller
 {
@@ -15,7 +18,9 @@ class PagesController extends Controller
     public function index()
     {
         $landing = Landing::find(1);
-        return view('index', ['landing' => $landing]);
+        $sliders = Slider::all();
+        $services = Service::all();
+        return view('index', ['landing' => $landing,'sliders' => $sliders,'services' => $services]);
     }
 
     /**
@@ -25,8 +30,8 @@ class PagesController extends Controller
      */
     public function who()
     {
-        $landing = Landing::find(1);
-        return view('who', ['landing' => $landing]);
+        $who = Who::find(1);
+        return view('who', ['who' => $who]);
     }
 
     /**
