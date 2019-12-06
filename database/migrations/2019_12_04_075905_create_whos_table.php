@@ -15,6 +15,7 @@ class CreateWhosTable extends Migration
     {
         Schema::create('whos', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->text('banner');
             $table->text('hero');
             $table->string('quote');
             $table->string('side_text');

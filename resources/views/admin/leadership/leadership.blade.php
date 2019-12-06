@@ -9,13 +9,60 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="card-box">
-                        <a class="btn btn-primary" href="{{ url('admin/blog/new') }}">Add Article</a>
+                        <div class="row">
+                            @include('partial.alert')
+                            <form class="form-horizontal" action="{{ url('admin/leadership') }}" method="post"
+                                enctype="multipart/form-data" role="form">
+                                {{ csrf_field() }}
+                                <div class="form-group">
+                                    <label class="control-label col-md-1 col-sm-3">
+
+                                    </label>
+                                    <div class="col-md-4 col-sm-9">
+                                        <h3>Main Text</h3>
+                                        <textarea class="form-control" name="hero">{{$lead->main}}</textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-1 col-sm-3">
+
+                                    </label>
+                                    <div class="col-md-4 col-sm-9">
+                                        <h3>Sub Text</h3>
+                                        <textarea class="form-control" name="hero">{{$lead->sub}}</textarea>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-1 col-sm-3">
+                                        {{-- Slider --}}
+                                    </label>
+                                    <div class="col-md-4 col-sm-9">
+                                        <h3>Banner</h3>
+                                        <label class="btn btn-primary">
+                                            <input type="file" name="image" accept="image/*" class="form-control"
+                                                required>
+                                            <i class="fa fa-photo"></i> Add file
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-11">
+                                        <button class="btn btn-lg btn-primary pull-right">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="row col-offset-md-1 col-md-1">
+
+                        </div>
                         <div class="table-rep-plugin">
+                            <a class="btn btn-primary" href="{{ url('admin/leadership/add') }}">Add Leader</a>
                             <div class="table-responsive" data-pattern="priority-columns">
                                 @include('partial.alert')
-                                @if(count($leader) < 1) <br><br>
+                                @if(count($leadership) < 1) <br><br>
                                     <div class="alert alert-info text-center">
-                                        <p>There are no articles posted at the moment</p>
+                                        <p>There are no leaders on the platform at the moment</p>
                                     </div>
                                     @else
                                     <br><br>
@@ -33,7 +80,8 @@
                                             <tr>
                                                 <td>{{ $leader->name }}</td>
                                                 {{-- <td><img height="300" width="300" src="{{ asset($leader->image_path) }}"
-                                                        class="img-fluid position-absolute global-image-subtract d-none d-md-block" />
+                                                class="img-fluid position-absolute global-image-subtract d-none
+                                                d-md-block" />
                                                 </td> --}}
                                                 <td>{!! $leader->role !!}</td>
                                                 <td>{!! $leader->ranking !!}</td>
@@ -41,8 +89,9 @@
                                                 <td>
                                                     {{-- <a class="btn btn-primary" href="{{ url('booking/annual/view/') }}">View</a>
                                                     --}}
-                                                    <a class="btn btn-info" href="{{ url('admin/blog/edit', ['id' => $leader->id]) }}">Edit</a>
-                                                   
+                                                    <a class="btn btn-info"
+                                                        href="{{ url('admin/blog/edit', ['id' => $leader->id]) }}">Edit</a>
+
                                                     <a data-toggle="modal" data-target="#{{$leader->id}}" href="#"
                                                         class="btn btn-danger">Delete</a>
                                                 </td>

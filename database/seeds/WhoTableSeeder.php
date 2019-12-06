@@ -14,6 +14,7 @@ class WhoTableSeeder extends Seeder
         DB::table('whos')->insert([
             'hero' => '',
             'quote' => '',
+            'banner' => '',
             'vision' => '',
             'side_text' => '',
             'image_path' => '',

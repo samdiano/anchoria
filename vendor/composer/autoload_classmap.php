@@ -1692,6 +1692,7 @@ return array(
     'Laravel\\Ui\\Presets\\Vue' => $vendorDir . '/laravel/ui/src/Presets/Vue.php',
     'Laravel\\Ui\\UiCommand' => $vendorDir . '/laravel/ui/src/UiCommand.php',
     'Laravel\\Ui\\UiServiceProvider' => $vendorDir . '/laravel/ui/src/UiServiceProvider.php',
+    'LeadershipPageTableSeeder' => $baseDir . '/database/seeds/LeadershipPageTableSeeder.php',
     'League\\Flysystem\\AdapterInterface' => $vendorDir . '/league/flysystem/src/AdapterInterface.php',
     'League\\Flysystem\\Adapter\\AbstractAdapter' => $vendorDir . '/league/flysystem/src/Adapter/AbstractAdapter.php',
     'League\\Flysystem\\Adapter\\AbstractFtpAdapter' => $vendorDir . '/league/flysystem/src/Adapter/AbstractFtpAdapter.php',

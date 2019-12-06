@@ -15,6 +15,9 @@ class CreateLeadershipPagesTable extends Migration
     {
         Schema::create('leadership_pages', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->text('main');
+            $table->text('sub');
+            $table->text('banner');
             $table->timestamps();
         });
     }

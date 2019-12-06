@@ -196,7 +196,7 @@ class AdminController extends Controller
     {
         $leadership = Leadership::all();
         $page = LeadershipPage::find(1);
-        return view('admin.leadership.leadership', ['leadership' => $leadership, 'page' => $page]);
+        return view('admin.leadership.leadership', ['leadership' => $leadership, 'lead' => $page]);
     }
 
 
@@ -209,7 +209,7 @@ class AdminController extends Controller
     {
         $leadership = Leadership::all();
         $page = LeadershipPage::find(1);
-        return view('admin.leadership.new', ['leadership' => $leadership, 'page' => $page]);
+        return view('admin.leadership.new', ['leadership' => $leadership, 'lead' => $page]);
     }
 
 }

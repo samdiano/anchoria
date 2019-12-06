@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
             UserTableSeeder::class,
             LandingTableSeeder::class,
             WhoTableSeeder::class,
+            LeadershipPageTableSeeder::class,
         ]);
     }
 }
