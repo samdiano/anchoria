@@ -7,6 +7,8 @@ use App\Landing;
 use App\Service;
 use App\Slider;
 use App\Who;
+use App\Leadership;
+use App\LeadershipPage;
 
 class PagesController extends Controller
 {
@@ -42,7 +44,9 @@ class PagesController extends Controller
     public function leadership()
     {
         $landing = Landing::find(1);
-        return view('leadership', ['landing' => $landing]);
+        $leadership = leadershipPage::find(1);
+        $leaders = leadership::all();
+        return view('leadership', ['landing' => $landing, 'leadership' => $leadership, 'leaders' => $leaders]);
     }
 
     /**

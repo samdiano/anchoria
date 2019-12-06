@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title','Blog')
+@section('title','Leadership')
 
 @section('content')
 <div class="content-page">
@@ -18,18 +18,13 @@
                                     <label class="control-label col-md-1 col-sm-3">
 
                                     </label>
-                                    <div class="col-md-4 col-sm-9">
+                                    <div class="col-md-5 col-sm-9">
                                         <h3>Main Text</h3>
-                                        <textarea class="form-control" name="hero">{{$lead->main}}</textarea>
+                                        <input type="text" class="form-control" name="main" value="{{$lead->main}}">
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-1 col-sm-3">
-
-                                    </label>
                                     <div class="col-md-4 col-sm-9">
                                         <h3>Sub Text</h3>
-                                        <textarea class="form-control" name="hero">{{$lead->sub}}</textarea>
+                                        <input type="text" class="form-control" name="sub" value="{{$lead->sub}}">
                                     </div>
                                 </div>
 
@@ -41,7 +36,7 @@
                                         <h3>Banner</h3>
                                         <label class="btn btn-primary">
                                             <input type="file" name="image" accept="image/*" class="form-control"
-                                                required>
+                                                >
                                             <i class="fa fa-photo"></i> Add file
                                         </label>
                                     </div>
@@ -53,13 +48,16 @@
                                 </div>
                             </form>
                         </div>
+
+                    </div>
+                    <div class="card-box">
+
                         <div class="row col-offset-md-1 col-md-1">
 
                         </div>
-                        <div class="table-rep-plugin">
+                        <div class="table-rep-plugin col-md-offset-1">
                             <a class="btn btn-primary" href="{{ url('admin/leadership/add') }}">Add Leader</a>
                             <div class="table-responsive" data-pattern="priority-columns">
-                                @include('partial.alert')
                                 @if(count($leadership) < 1) <br><br>
                                     <div class="alert alert-info text-center">
                                         <p>There are no leaders on the platform at the moment</p>

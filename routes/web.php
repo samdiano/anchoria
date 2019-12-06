@@ -47,7 +47,8 @@ Route::get('/admin/who', 'AdminController@who')->name('who');
 Route::post('/admin/who', 'AdminController@whoPost')->name('whoPost');
 
 Route::get('/admin/leadership', 'AdminController@leadership')->name('who');
+Route::post('/admin/leadership', 'AdminController@leadershipPost')->name('who');
 Route::get('/admin/leadership/add', 'AdminController@leadershipAdd')->name('who');
-Route::post('/leadership/add', 'AdminController@leadershipAddPost')->name('whoPost');
+Route::post('/admin/leadership/add', 'AdminController@leadershipAddPost')->name('whoPost');
 
 

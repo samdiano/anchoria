@@ -116,13 +116,14 @@
 	</nav>
 	<!--/.Navbar-->
 
-	<div class="section-1-leadership">
+	<div class="section-1-leadership" style="background-image: url({{$leadership->banner}})">
 		<div class="container">
 			<div class="row justify-content-center pb-4 pt-5">
 				<div class="col-md-6">
-					<h2 class="text-white gotham-bold font-weight-bld text-center mt-5 pt-5 mb-4 font-40">Leadership
+					<h2 class="text-white gotham-bold font-weight-bld text-center mt-5 pt-5 mb-4 font-40">
+						{!!$leadership->main!!}
 					</h2>
-					<p class="font-weight-light text-white text-center font-17">Top-down Bottom-up Leadership Approach
+					<p class="font-weight-light text-white text-center font-17">{!!$leadership->sub!!}
 					</p>
 				</div>
 			</div>
@@ -224,28 +225,29 @@
 
 	</div>
 	<div class="container">
-
 		<div class="row justify-content-center mt-5">
-			<div class="col-md-5 py-3">
+			@foreach ($leaders as $leader)
+			<div class="col-md-6 py-3">
 				<div class="row">
-					<div class="col-md-5" data-toggle="modal" data-target="#adenubi">
+					<div class="col-md-6" data-toggle="modal" data-target="#{{$leader->name}}">
 						<div class="hover-cursor leadership_shot"
-							style="background-image: url(img/board/NiyiAdenubi.jpg);">
+							style="background-image: url({{$leader->image_path}});">
 						</div>
 					</div>
 
 					<div class="col-md-6">
-						<h6 data-toggle="modal" data-target="#adenubi"
+						<h6 data-toggle="modal" data-target="{{$leader->name}}"
 							class="hover-cursor font-weight-bold mt-1 text-md-left text-center purple-text-default"
-							data-toggle="modal" data-target="#busari">ADENIYI ADENUBI</h6>
-						<p class="text-md-left text-center">Chairman</p>
+							data-toggle="modal" data-target="{{$leader->name}}">{{$leader->name}}</h6>
+						<p class="text-md-left text-center">{{$leader->role}}</p>
 					</div>
 				</div>
 			</div>
-
-			<div class="col-md-5 py-3">
+			@endforeach
+			{{-- 
+			<div class="col-md-6 py-3">
 				<div class="row" data-toggle="modal" data-target="#ete">
-					<div class="col-md-5">
+					<div class="col-md-6">
 						<div class="hover-cursor leadership_shot"
 							style="background-image: url(img/board/Ete_ogun.jpg);">
 						</div>
@@ -259,9 +261,11 @@
 					</div>
 				</div>
 			</div>
+			 --}}
+
 		</div>
 
-		<div class="row justify-content-center hover-cursor">
+		{{-- <div class="row justify-content-center hover-cursor">
 			<div class="col-md-5 py-3">
 				<div class="row" data-toggle="modal" data-target="#adaobi">
 					<div class="col-md-5">
@@ -293,9 +297,9 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> --}}
 
-		<div class="row justify-content-center">
+		{{-- <div class="row justify-content-center">
 			<div class="col-md-5 py-3">
 				<div class="row" data-toggle="modal" data-target="#abayomi">
 					<div class="col-md-5">
@@ -327,9 +331,9 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> --}}
 
-		<div class="row">
+		{{-- <div class="row">
 			<div class="col-md-5 py-3 offset-md-1">
 				<div class="row" data-toggle="modal" data-target="#bolaji">
 					<div class="col-md-5">
@@ -365,7 +369,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> --}}
 
 	</div>
 
@@ -549,8 +553,8 @@
 		</div>
 	</div>
 
-
-	<div class="modal fade" id="ete" tabindex="-1" role="dialog" aria-labelledby="exec_infoLabel" aria-hidden="true">
+	@foreach ($leaders as $leader)
+	<div class="modal fade" id="{{$leader->name}}" tabindex="-1" role="dialog" aria-labelledby="exec_infoLabel" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered leadership_modal" role="document">
 			<div class="modal-content">
 				<div class="modal-header border-0 pb-0">
@@ -564,45 +568,33 @@
 					<div class="row">
 
 						<div class="col-md-5">
-							<div style="background-image: url(img/board/Ete_ogun.jpg);
-											background-size: contain;
-											background-position: center;
-											background-repeat: no-repeat;
-											width: 100%;
-											height: 250px;">
+							<div style="background-image: url({{$leader->image_path}});
+												background-size: contain;
+												background-position: center;
+												background-repeat: no-repeat;
+												width: 100%;
+												height: 250px;">
 
 							</div>
 						</div>
 
 						<div class="col-md-7">
-							<h6 class="font-weight-bold">Managing Director</h6>
-							<h4 class="font-weight-bold gotham-bold">ETE OGUN
+							<h6 class="font-weight-bold">{{$leader->role}}</h6>
+							<h4 class="font-weight-bold gotham-bold">{{$leader->name}}
 							</h4>
-							<p class="font-13">Ete Ogun is the Managing Director of Anchoria Asset Management Limited.
-								She is a graduate of Accounting from the University of Benin and has an M.A in Finance
-								and Investments from University of Exeter, Exeter, UK.
+							<p class="font-13">{!!$leader->description!!}
 							</p>
 
-							<p class="font-13">Ete has over 16 years professional experience in the financial services
-								industry. She began her career in 2000 as an Audit Trainee with Ernst and Young
-								Chartered Accountants. She proceeded to the former Intercontinental Bank Plc in 2002 to
-								join the operations team where she served as Customer Service Officer and Funds Transfer
-								Officer in various branches of the bank. In 2007, after she returned from her study
-								leave, she joined Stanbic IBTC Asset Management as a Portfolio/Relationship Manager. She
-								rose through the ranks and became the Head of Fund Operations as well as Head of
-								Relationship Management at Stanbic IBTC Asset Management Limited before her departure in
-								2013.
-								Prior to her appointment, she worked with PlanetCap Asset Management Limited. She is an
-								Associate Member of the Institute of Chartered Accountants of Nigeria (ICAN).
+							
 
-							</p>
-
-
+							@if ($leader->linkedin)
+								
 							<ul class="list-inline mt-2">
 								<li class="list-inline-item"><a
-										href="https://www.linkedin.com/in/ete-ogun-aca-m-sc-21761950/"><img
+										href="{{$leader->linkedin}}"><img
 											src="img/social_icons/linkedin.png" class="img-fluid" /></a></li>
 							</ul>
+							@endif
 						</div>
 					</div>
 
@@ -612,6 +604,8 @@
 			</div>
 		</div>
 	</div>
+
+	@endforeach
 
 	<div class="modal fade" id="adaobi" tabindex="-1" role="dialog" aria-labelledby="exec_infoLabel" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered leadership_modal" role="document">

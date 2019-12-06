@@ -199,6 +199,33 @@ class AdminController extends Controller
         return view('admin.leadership.leadership', ['leadership' => $leadership, 'lead' => $page]);
     }
 
+    /**
+     * Update service Page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function leadershipPost(Request $request)
+    {
+        $validator = $this->validate($request, [
+            'main' => 'required',
+            'sub' => 'required',
+        ]);
+        $leadership = LeadershipPage::find(1);
+
+        if ($request->hasFile('image')) {
+            $filename = $request->image->store('images', 'public');
+            $leadership->banner = $filename;
+        }
+        $leadership->main = $request->main;
+        $leadership->sub = $request->sub;
+        
+        if ($leadership->save()) {
+            return redirect('admin/leadership')->with(['alert' => ' Content updated succesfully']);
+        } else {
+            return redirect()->back()->withErrors($validator);
+        }
+    }
+
 
     /**
      * Show the admin who are we page
@@ -210,6 +237,45 @@ class AdminController extends Controller
         $leadership = Leadership::all();
         $page = LeadershipPage::find(1);
         return view('admin.leadership.new', ['leadership' => $leadership, 'lead' => $page]);
+    }
+
+    /**
+     * Update who Page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function leadershipAddPost(Request $request)
+    {
+        $validator = $this->validate($request, [
+            'image' => 'required',
+            'name' => 'required',
+            'role' => 'required',
+        ]);
+        // $who =  new Who();
+        $leadership = new Leadership();
+
+        $info = Leadership::orderByRaw('LENGTH(ranking)', 'ASC')->orderBy('ranking', 'ASC')->get();
+        $max_info = 0;
+        if (count($info) >= 1) {
+            # code...
+            $max_info = $info->last()->ranking;
+        }
+
+        if ($request->hasFile('image')) {
+            $filename = $request->image->store('images', 'public');
+            $leadership->image_path = $filename;
+        }
+        $leadership->name = $request->name;
+        $leadership->role = $request->role;
+        $leadership->description = $request->description;
+        $leadership->ranking = $max_info + 1;
+        $leadership->linkedin = $request->linkedin;
+        
+        if ($leadership->save()) {
+            return redirect('admin/leadership')->with(['alert' => ' Content updated succesfully']);
+        } else {
+            return redirect()->back()->withErrors($validator);
+        }
     }
 
 }

@@ -15,7 +15,7 @@
                         <h4 class="header-title m-t-0 m-b-30">Leadership Profile</h4>
                         <div class="row">
                             @include('partial.alert')
-                            <form class="form-horizontal" action="{{ url('admin/landing') }}" method="post"
+                            <form class="form-horizontal" action="{{ url('admin/leadership/add') }}" method="post"
                                 enctype="multipart/form-data" role="form">
                                 {{ csrf_field() }}
 
@@ -67,7 +67,7 @@
                                     </label>
                                     <div class="col-md-9 col-sm-9">
                                         <h3>LinkedIn</h3>
-                                        <input class="form-control" type="text" name="linkedin" id="">
+                                        <input class="form-control" type="url" name="linkedin" id="">
                                     </div>
                                 </div>
 
