@@ -45,7 +45,7 @@ class PagesController extends Controller
     {
         $landing = Landing::find(1);
         $leadership = leadershipPage::find(1);
-        $leaders = leadership::all();
+        $leaders = Leadership::orderByRaw('LENGTH(ranking)', 'ASC')->orderBy('ranking', 'ASC')->get();
         return view('leadership', ['landing' => $landing, 'leadership' => $leadership, 'leaders' => $leaders]);
     }
 
