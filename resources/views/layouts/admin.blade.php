@@ -90,11 +90,11 @@
   noneditable_noneditable_class: "mceNonEditable",
   toolbar_drawer: 'sliding',
   contextmenu: "link image imagetools table",
-  setup: function (editor) {
-        editor.on('init', function () {
-            editor.dom.addClass(tinymce.activeEditor.dom.select('p'), 'text-justify slick_dark');
-        });
-	}
+//   setup: function (editor) {
+//         editor.on('init', function () {
+//             editor.dom.addClass(tinymce.activeEditor.dom.select('p'), 'text-justify slick_dark');
+//         });
+// 	}
  });
 
     </script>

@@ -85,11 +85,14 @@
                                                 <td>{!! $leader->ranking !!}</td>
 
                                                 <td>
-                                                    {{-- <a class="btn btn-primary" href="{{ url('booking/annual/view/') }}">View</a>
-                                                    --}}
+                                                    
                                                     <a class="btn btn-info"
-                                                        href="{{ url('admin/blog/edit', ['id' => $leader->id]) }}">Edit</a>
+                                                    href="{{ url('admin/leadership/edit', ['id' => $leader->id]) }}">Edit</a>
 
+                                                    {{-- <a class="btn btn-primary" href="{{ url('admin/leadership/ranking', ['id' => $leader->id]) }}">Change Ranking</a> --}}
+
+                                                    <a data-toggle="modal" data-target="#{{$leader->id}}-rank" href="#"
+                                                            class="btn btn-primary">Change Ranking</a>
                                                     <a data-toggle="modal" data-target="#{{$leader->id}}" href="#"
                                                         class="btn btn-danger">Delete</a>
                                                 </td>
@@ -113,7 +116,7 @@
                                                                 <div class="xs-mt-50">
                                                                     <button type="button" data-dismiss="modal"
                                                                         class="btn btn-space btn-default">Cancel</button>
-                                                                    <a href="{{ url('admin/blog/delete', ['id' => $leader->id])}}"
+                                                                    <a href="{{ url('admin/leadership/delete', ['id' => $leader->id])}}"
                                                                         class="btn btn-space btn-danger"
                                                                         type="submit">Delete</a>
                                                                 </div>
@@ -123,6 +126,57 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            <div id="{{$leader->id}}-rank" tabindex="-1" role="dialog" style=""
+                                                    class="modal fade">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" data-dismiss="modal"
+                                                                    aria-hidden="true" class="close"><span
+                                                                        class="mdi mdi-close"></span></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="text-center">
+                                                                    <div class="text-danger"><span
+                                                                            class="modal-main-icon mdi mdi-close-circle-o"></span>
+                                                                    </div>
+                                                                    <h3>Change Ranking</h3>
+                                                                    {{-- <h3>Warning!</h3> --}}
+                                                                    {{-- <p>Chan</p> --}}
+                                                                    <form class="form-horizontal"
+                                                                        action="{{ url('admin/leadership/ranking', ['id' => $leader->id]) }}"
+                                                                        method="post" enctype="multipart/form-data"
+                                                                        role="form">
+                                                                        {{ csrf_field() }}
+                                                                        <div class="row">
+    
+                                                                            <div class="form-group">
+                                                                                <label
+                                                                                    class="control-label col-md-3 col-sm-3">
+                                                                                    Rank
+                                                                                </label>
+                                                                                <div class="col-md-9 col-sm-9">
+                                                                                    <input type="text" name="rank"
+                                                                                        placeholder="{{$leader->rank}}"
+                                                                                        class="form-control">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+    
+                                                                        <div class="xs-mt-50">
+                                                                            <button type="button" data-dismiss="modal"
+                                                                                class="btn btn-space btn-default">Cancel</button>
+                                                                            <button class="btn btn-space btn-success"
+                                                                                type="submit">Change Rank</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             @endforeach
                                         </tbody>
                                     </table>

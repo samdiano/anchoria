@@ -194,7 +194,8 @@ class AdminController extends Controller
      */
     public function leadership()
     {
-        $leadership = Leadership::all();
+        $leadership = Leadership::orderByRaw('LENGTH(ranking)', 'ASC')->orderBy('ranking', 'ASC')->get();
+
         $page = LeadershipPage::find(1);
         return view('admin.leadership.leadership', ['leadership' => $leadership, 'lead' => $page]);
     }
@@ -240,6 +241,18 @@ class AdminController extends Controller
     }
 
     /**
+     * Show the admin who are we page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function leadershipEdit($id)
+    {
+        $leadership = Leadership::find($id);
+        $page = LeadershipPage::find(1);
+        return view('admin.leadership.edit', ['leadership' => $leadership, 'lead' => $page]);
+    }
+
+    /**
      * Update who Page
      *
      * @return \Illuminate\Contracts\Support\Renderable
@@ -273,6 +286,130 @@ class AdminController extends Controller
         
         if ($leadership->save()) {
             return redirect('admin/leadership')->with(['alert' => ' Content updated succesfully']);
+        } else {
+            return redirect()->back()->withErrors($validator);
+        }
+    }
+
+    /**
+     * Update who Page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function leadershipEditPost(Request $request, $id)
+    {
+        $validator = $this->validate($request, [
+            'name' => 'required',
+            'role' => 'required',
+        ]);
+        // $who =  new Who();
+        $leadership = Leadership::find($id);
+
+        // $info = Leadership::orderByRaw('LENGTH(ranking)', 'ASC')->orderBy('ranking', 'ASC')->get();
+        // $max_info = 0;
+        // if (count($info) >= 1) {
+        //     # code...
+        //     $max_info = $info->last()->ranking;
+        // }
+
+
+        if ($leadership->rank !== $request->rank) {
+            # code...
+            $leadership->rank = $request->rank;
+
+            $info = Leadership::orderByRaw('LENGTH(ranking)', 'ASC')->orderBy('ranking', 'ASC')->get();
+            foreach ($info as $key => $info) {
+                # code...rank
+                if ($info->ranking == $request->rank) {
+                    # code...
+                    $info->rank += 1;
+                }
+                $info->save();
+            }
+            $saved = $leadership->save();
+    
+            $info = Leadership::orderByRaw('LENGTH(ranking)', 'ASC')->orderBy('ranking', 'ASC')->get();
+    
+            $index = $request->rank;
+            // return $request->rank;
+            foreach ($info as $key => $info) {
+                # code...
+                if (($info->rank > $request->rank)) {
+                    # code...
+                    $index += 1;
+                    // return $index;
+                    $info->rank = 0;
+                    $info->rank = $index;
+                }
+                $info->save();
+            }
+        }
+
+        if ($request->hasFile('image')) {
+            $filename = $request->image->store('images', 'public');
+            $leadership->image_path = $filename;
+        }
+        $leadership->name = $request->name;
+        $leadership->role = $request->role;
+        $leadership->description = $request->description;
+        // $leadership->ranking = $max_info + 1;
+        $leadership->linkedin = $request->linkedin;
+        
+        if ($leadership->save()) {
+            return redirect('admin/leadership')->with(['alert' => ' Content updated succesfully']);
+        } else {
+            return redirect()->back()->withErrors($validator);
+        }
+    }
+
+    /**
+     * Update who Page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function leadershipRankingPost(Request $request, $id)
+    {
+        $validator = $this->validate($request, [
+            'rank' => 'required',
+        ]);
+        // $who =  new Who();
+        $leadership = Leadership::find($id);
+
+        // if ($leadership->rank !== $request->rank) {
+            # code...
+            $leadership->ranking = $request->rank;
+
+            $info = Leadership::orderByRaw('LENGTH(ranking)', 'ASC')->orderBy('ranking', 'ASC')->get();
+            foreach ($info as $key => $info) {
+                # code...rank
+                if ($info->ranking == $request->rank) {
+                    # code...
+                    $info->ranking += 1;
+                }
+                $info->save();
+            }
+            $saved = $leadership->save();
+    
+            $info = Leadership::orderByRaw('LENGTH(ranking)', 'ASC')->orderBy('ranking', 'ASC')->get();
+    
+            $index = $request->rank;
+            // return $request->rank;
+            foreach ($info as $key => $info) {
+                # code...
+                if (($info->ranking > $request->rank)) {
+                    # code...
+                    $index += 1;
+                    // return $index;
+                    $info->ranking = 0;
+                    $info->ranking = $index;
+                }
+                $info->save();
+            }
+        // }
+
+        
+        if ($saved) {
+            return redirect('admin/leadership')->with(['alert' => ' Ranking changed succesfully']);
         } else {
             return redirect()->back()->withErrors($validator);
         }
