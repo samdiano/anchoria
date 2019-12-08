@@ -218,11 +218,11 @@
                                     class="zmdi zmdi-layers"></i><span>Products</span>
                                 <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
-                                <li><a href="{{ url('admin/financial-information') }}">Multi-Family Office</a></li>
-                                <li><a href="{{ url('admin/conference') }}">Portfolio Management</a></li>
-                                <li><a href="{{ url('admin/conference') }}">Liquidity Management</a></li>
-                                <li><a href="{{ url('admin/press') }}">Structured Products</a></li>
-                                <li><a href="{{ url('admin/faq') }}">Mutual Funds</a></li>
+                                <li><a href="{{ url('admin/multi-family') }}">Multi-Family Office</a></li>
+                                <li><a href="{{ url('admin/portfolio') }}">Portfolio Management</a></li>
+                                <li><a href="{{ url('admin/liquidity') }}">Liquidity Management</a></li>
+                                <li><a href="{{ url('admin/structured-products') }}">Structured Products</a></li>
+                                <li><a href="{{ url('admin/mutual-funds') }}">Mutual Funds</a></li>
 
                             </ul>
 
