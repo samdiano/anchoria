@@ -16,6 +16,7 @@ class CreatePortfolioServicesTable extends Migration
         Schema::create('portfolio_services', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('class');
+            $table->text('description');
             $table->timestamps();
         });
     }

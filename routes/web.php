@@ -66,3 +66,10 @@ Route::get('/admin/features/delete/{id}', 'AdminController@featureDelete')->name
 
 Route::get('/admin/portfolio', 'AdminController@portfolio')->name('who');
 Route::post('/admin/portfolio', 'AdminController@portfolioPost')->name('who');
+
+Route::post('/admin/portfolio-services/add', 'AdminController@portfolioServiceAddPost')->name('who');
+Route::post('/admin/portfolio-services/edit/{id}', 'AdminController@portfolioServiceEditPost')->name('who');
+Route::get('/admin/portfolio-services/delete/{id}', 'AdminController@portfolioServiceDelete')->name('who');
+
+Route::get('/admin/liquidity', 'AdminController@liquidity')->name('who');
+Route::post('/admin/liquidity', 'AdminController@liquidityPost')->name('who');

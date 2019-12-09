@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title','Leadership')
+@section('title','Multi Family Office')
 
 @section('content')
 <div class="content-page">

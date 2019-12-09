@@ -9,6 +9,8 @@ use App\Leadership;
 use App\LeadershipPage;
 use App\MultiFamily;
 use App\Feature;
+use App\Portfolio;
+use App\PortfolioService;
 use App\Service;
 use App\Who;
 
@@ -519,5 +521,112 @@ class AdminController extends Controller
             return redirect()->back()->withErrors($validator);
         }
     }
+
+
+    /**
+     * Show the admin who are we page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function portfolio()
+    {
+        $portfolio = Portfolio::find(1);
+        $services = PortfolioService::all();
+        return view('admin.portfolio.portfolio', [ 'portfolio' => $portfolio, 'services' => $services]);
+    }
+
+    /**
+     * Update service Page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function portfolioPost(Request $request)
+    {
+        $validator = $this->validate($request, [
+            'main' => 'required',
+            'sub' => 'required',
+        ]);
+        $portfolio = Portfolio::find(1);
+
+        if ($request->hasFile('image')) {
+            $filename = $request->image->store('images', 'public');
+            $portfolio->image_path = $filename;
+        }
+    
+        $portfolio->main = $request->main;
+        $portfolio->sub = $request->sub;
+        $portfolio->side_text = $request->side_text;
+        $portfolio->footer_text = $request->footer_text;
+        
+        if ($portfolio->save()) {
+            return redirect('admin/portfolio')->with(['alert' => ' Content updated succesfully']);
+        } else {
+            return redirect()->back()->withErrors($validator);
+        }
+    }
+
+    /**
+     * Update who Page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function portfolioServiceAddPost(Request $request)
+    {
+        $validator = $this->validate($request, [
+            'class' => 'required',
+            'description' => 'required',
+        ]);
+        $portfolioService = new PortfolioService();
+
+        $portfolioService->class = $request->class;
+        $portfolioService->description = $request->description;
+        
+        if ($portfolioService->save()) {
+            return redirect('admin/portfolio')->with(['alert' => ' Service Class added succesfully']);
+        } else {
+            return redirect()->back()->withErrors($validator);
+        }
+    }
+
+    /**
+     * Update who Page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function portfolioServiceEditPost(Request $request, $id)
+    {
+        $validator = $this->validate($request, [
+            'class' => 'required',
+            'description' => 'required',
+        ]);
+        $portfolioService = PortfolioService::find($id);
+
+        $portfolioService->class = $request->class;
+        $portfolioService->description = $request->description;
+        
+        if ($portfolioService->save()) {
+            return redirect('admin/portfolio')->with(['alert' => ' Service Class updated succesfully']);
+        } else {
+            return redirect()->back()->withErrors($validator);
+        }
+    }
+
+    /**
+     * Update who Page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function portfolioServiceDelete(Request $request, $id)
+    {
+        
+        $feature = PortfolioService::find($id);
+        
+        if ($feature->delete()) {
+            return redirect('admin/portfolio')->with(['alert' => ' Service Class deleted succesfully']);
+        } else {
+            return redirect()->back()->withErrors($validator);
+        }
+    }
+
 
 }
