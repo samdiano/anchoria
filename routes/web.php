@@ -57,4 +57,12 @@ Route::post('/admin/leadership/edit/{id}', 'AdminController@leadershipEditPost')
 
 Route::post('/admin/leadership/ranking/{id}', 'AdminController@leadershipRankingPost')->name('whoPost');
 
+Route::get('/admin/multi-family', 'AdminController@multiFamily')->name('who');
+Route::post('/admin/multi-family', 'AdminController@multiFamilyPost')->name('who');
 
+Route::post('/admin/features/add', 'AdminController@featureAddPost')->name('who');
+Route::post('/admin/features/edit/{id}', 'AdminController@featureEditPost')->name('who');
+Route::get('/admin/features/delete/{id}', 'AdminController@featureDelete')->name('who');
+
+Route::get('/admin/portfolio', 'AdminController@portfolio')->name('who');
+Route::post('/admin/portfolio', 'AdminController@portfolioPost')->name('who');

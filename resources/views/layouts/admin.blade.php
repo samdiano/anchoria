@@ -223,7 +223,6 @@
                                 <li><a href="{{ url('admin/liquidity') }}">Liquidity Management</a></li>
                                 <li><a href="{{ url('admin/structured-products') }}">Structured Products</a></li>
                                 <li><a href="{{ url('admin/mutual-funds') }}">Mutual Funds</a></li>
-
                             </ul>
 
                         </li>

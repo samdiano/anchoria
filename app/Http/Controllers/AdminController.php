@@ -7,6 +7,8 @@ use App\Landing;
 use App\Slider;
 use App\Leadership;
 use App\LeadershipPage;
+use App\MultiFamily;
+use App\Feature;
 use App\Service;
 use App\Who;
 
@@ -410,6 +412,109 @@ class AdminController extends Controller
         
         if ($saved) {
             return redirect('admin/leadership')->with(['alert' => ' Ranking changed succesfully']);
+        } else {
+            return redirect()->back()->withErrors($validator);
+        }
+    }
+
+    /**
+     * Show the admin who are we page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function multiFamily()
+    {
+        $multifamily = MultiFamily::find(1);
+        $features = Feature::all();
+        return view('admin.multifamily.multifamily', [ 'multifamily' => $multifamily, 'features' => $features]);
+    }
+
+    /**
+     * Update service Page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function multiFamilyPost(Request $request)
+    {
+        $validator = $this->validate($request, [
+            'main' => 'required',
+            'sub' => 'required',
+        ]);
+        $multifamily = MultiFamily::find(1);
+
+        if ($request->hasFile('image_1')) {
+            $filename = $request->image_1->store('images', 'public');
+            $multifamily->image_1 = $filename;
+        }
+        if ($request->hasFile('image_2')) {
+            $filename = $request->image_2->store('images', 'public');
+            $multifamily->image_2 = $filename;
+        }
+        $multifamily->main = $request->main;
+        $multifamily->sub = $request->sub;
+        $multifamily->side_text = $request->side_text;
+        
+        if ($multifamily->save()) {
+            return redirect('admin/multi-family')->with(['alert' => ' Content updated succesfully']);
+        } else {
+            return redirect()->back()->withErrors($validator);
+        }
+    }
+
+    /**
+     * Update who Page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function featureAddPost(Request $request)
+    {
+        $validator = $this->validate($request, [
+            'feature' => 'required',
+        ]);
+        $feature = new Feature();
+
+        $feature->feature = $request->feature;
+        
+        if ($feature->save()) {
+            return redirect('admin/multi-family')->with(['alert' => ' Feature added succesfully']);
+        } else {
+            return redirect()->back()->withErrors($validator);
+        }
+    }
+
+    /**
+     * Update who Page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function featureEditPost(Request $request, $id)
+    {
+        $validator = $this->validate($request, [
+            'feature' => 'required',
+        ]);
+        $feature = Feature::find($id);
+
+        $feature->feature = $request->feature;
+        
+        if ($feature->save()) {
+            return redirect('admin/multi-family')->with(['alert' => ' Feature updated succesfully']);
+        } else {
+            return redirect()->back()->withErrors($validator);
+        }
+    }
+
+    /**
+     * Update who Page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function featureDelete(Request $request, $id)
+    {
+        
+        $feature = Feature::find($id);
+        
+        if ($feature->delete()) {
+            return redirect('admin/multi-family')->with(['alert' => ' Feature deleted succesfully']);
         } else {
             return redirect()->back()->withErrors($validator);
         }
