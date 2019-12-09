@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Benefit;
 use Illuminate\Http\Request;
 use App\Landing;
 use App\Slider;
@@ -9,6 +10,7 @@ use App\Leadership;
 use App\LeadershipPage;
 use App\MultiFamily;
 use App\Feature;
+use App\Liquidity;
 use App\Portfolio;
 use App\PortfolioService;
 use App\Service;
@@ -627,6 +629,108 @@ class AdminController extends Controller
             return redirect()->back()->withErrors($validator);
         }
     }
+
+    /**
+     * Show the admin who are we page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function liquidity()
+    {
+        $liquidity = Liquidity::find(1);
+        $benefits = Benefit::all();
+        return view('admin.liquidity.liquidity', [ 'liquidity' => $liquidity, 'benefits' => $benefits]);
+    }
+
+    /**
+     * Update service Page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function liquidityPost(Request $request)
+    {
+        $validator = $this->validate($request, [
+            'main' => 'required',
+            'sub' => 'required',
+        ]);
+        $liquidity = Liquidity::find(1);
+
+        if ($request->hasFile('image')) {
+            $filename = $request->image->store('images', 'public');
+            $liquidity->image_path = $filename;
+        }
+    
+        $liquidity->main = $request->main;
+        $liquidity->sub = $request->sub;
+        $liquidity->features = $request->features;
+        
+        if ($liquidity->save()) {
+            return redirect('admin/liquidity')->with(['alert' => ' Content updated succesfully']);
+        } else {
+            return redirect()->back()->withErrors($validator);
+        }
+    }
+
+    /**
+     * Update who Page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function benefitAddPost(Request $request)
+    {
+        $validator = $this->validate($request, [
+            'benefit' => 'required',
+        ]);
+        $benefit = new Benefit();
+
+        $benefit->benefit = $request->benefit;
+        
+        if ($benefit->save()) {
+            return redirect('admin/liquidity')->with(['alert' => ' Benefit added succesfully']);
+        } else {
+            return redirect()->back()->withErrors($validator);
+        }
+    }
+
+    /**
+     * Update who Page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function benefitEditPost(Request $request, $id)
+    {
+        $validator = $this->validate($request, [
+            'benefit' => 'required',
+        ]);
+        $benefit = Benefit::find($id);
+
+        $benefit->benefit = $request->benefit;
+        
+        if ($benefit->save()) {
+            return redirect('admin/liquidity')->with(['alert' => ' Benefit updated succesfully']);
+        } else {
+            return redirect()->back()->withErrors($validator);
+        }
+    }
+
+    /**
+     * Update who Page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function benefitDelete(Request $request, $id)
+    {
+        
+        $benefit = Benefit::find($id);
+        
+        if ($benefit->delete()) {
+            return redirect('admin/liquidity')->with(['alert' => ' Feature deleted succesfully']);
+        } else {
+            return redirect()->back()->withErrors($validator);
+        }
+    }
+
+
 
 
 }

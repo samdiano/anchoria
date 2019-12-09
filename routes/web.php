@@ -73,3 +73,7 @@ Route::get('/admin/portfolio-services/delete/{id}', 'AdminController@portfolioSe
 
 Route::get('/admin/liquidity', 'AdminController@liquidity')->name('who');
 Route::post('/admin/liquidity', 'AdminController@liquidityPost')->name('who');
+
+Route::post('/admin/benefits/add', 'AdminController@benefitAddPost')->name('who');
+Route::post('/admin/benefits/edit/{id}', 'AdminController@benefitEditPost')->name('who');
+Route::get('/admin/benefits/delete/{id}', 'AdminController@benefitDelete')->name('who');
