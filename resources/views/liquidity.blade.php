@@ -113,8 +113,8 @@
             <div class="container">
                 <div class="row justify-content-center pb-4 pt-5">
                     <div class="col-md-6">
-                        <h2 class="text-white gotham-bold font-weight-bld text-center mt-5 pt-5 mb-4 font-40">Liquidity Management</h2>
-                        <p class="font-weight-light text-white text-center font-17">Earn interest with unlimited access to short term funds. With Anchoria Asset Management, no fund is little to invest</p>
+                        <h2 class="text-white gotham-bold font-weight-bld text-center mt-5 pt-5 mb-4 font-40">{{$liquidity->main}}</h2>
+                        <p class="font-weight-light text-white text-center font-17">{{$liquidity->sub}}</p>
                     </div>
                 </div>
             </div>
@@ -170,15 +170,12 @@
             <div class="container">
                 <div class="row justify-content-center mt-md-5 pb-4">
                     <div class="col-md-8">
+                        @if ($liquidity->features)
                         <h3 class="purple-text-default gotham-bold font-weight-bold text-center my-3">Features</h3>
 
-                        <p class="text-center">We provide efficient liquidity management service to individual, corporate and institutional clients.</p>
+                        <p class="text-center">{!!$liquidity->features!!}</p>
+                        @endif
 
-                        <p class="text-center">We offer individual, corporate and institutional clients the opportunity to earn competitive interest on their short-term idle funds which they will have unlimited access to, with no penalty charges.</p>
-
-
-                        <p class="text-center">We aim to be our clients’ most valued asset by providing them with optimal wealth management solutions with the end goal of sustaining and improving their financial well-being.
-                        </p>
 
                     </div>
                 </div>
@@ -223,14 +220,16 @@
 
             <div class="row justify-content-center mt-3">
                 <div class="col-md-6">
+                    @if (count($benefits) !== 0)
                     <h3 class="purple-text-default gotham-bold font-weight-bold text-center mt-3">Benefits</h3>
+                    @endif
                 </div>
             </div>
 
 
             <div class="row my-5">
                 <div class="col-md-5 offset-md-1">
-                    <div style="background-image: url(img/core_values.jpg);
+                    <div style="background-image: url({{$liquidity->image_path}});
                                 background-repeat: no-repeat;
                                 background-size: cover;
                                 height: 250px;
@@ -241,14 +240,10 @@
 
                 <div class="col-md-6">
                     <ul>
-                        <li class="custom-list mb-3">Minimum investment amount of N50million</li>
-                        <li class="custom-list my-3 d-flex">Redemption is allowed without any charges (24-hour notice period required).</li>
-                        <li class="custom-list my-3">Tenor is between 1 and 30 days.</li>
-                        <li class="custom-list my-3">Gross return between 6 – 8% Per annum.</li>
-                        <li class="custom-list my-3">Easy liquidity management.</li>
-                        <li class="custom-list my-3">Competitive returns.</li>
-                        <li class="custom-list my-3">Easy exit option.</li>
-                        <li class="custom-list my-3">Flexibility of investment.</li>
+                        @foreach ($benefits as $benefit)
+                        <li class="custom-list mb-3">{{$benefit->benefit}}</li>
+                        @endforeach
+                        
                     </ul>
                 </div>
             </div>

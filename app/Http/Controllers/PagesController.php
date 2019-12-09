@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\BenefitLiquidity;
 use App\Feature;
 use Illuminate\Http\Request;
 use App\Landing;
@@ -10,6 +11,7 @@ use App\Slider;
 use App\Who;
 use App\Leadership;
 use App\LeadershipPage;
+use App\Liquidity;
 use App\MultiFamily;
 use App\Portfolio;
 use App\PortfolioService;
@@ -60,8 +62,9 @@ class PagesController extends Controller
      */
     public function liquidity()
     {
-        $landing = Landing::find(1);
-        return view('liquidity', ['landing' => $landing]);
+        $liquidity = Liquidity::find(1);
+        $benefits = BenefitLiquidity::all();
+        return view('liquidity', ['liquidity' => $liquidity, 'benefits' => $benefits]);
     }
 
     /**
