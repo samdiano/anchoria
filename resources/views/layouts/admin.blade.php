@@ -252,6 +252,11 @@
                     </li>
 
                     <li>
+                        <a href="/admin/faq" class="waves-effect"><i class="zmdi zmdi-layers"></i>
+                            <span> FAQs </span> </a>
+                    </li>
+
+                    <li>
                         <a href="/admin/contact" class="waves-effect"><i class="zmdi zmdi-layers"></i>
                             <span> Contact Page </span> </a>
                     </li>

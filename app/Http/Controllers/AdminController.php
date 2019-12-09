@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Benefit;
 use App\BenefitLiquidity;
+use App\Faq;
 use Illuminate\Http\Request;
 use App\Landing;
 use App\Slider;
@@ -947,4 +948,85 @@ class AdminController extends Controller
             return redirect()->back()->withErrors($validator);
         }
     }
+
+    /**
+     * Show the admin who are we page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function faq()
+    {
+        $faqs = Faq::all();
+        return view('admin.faq.faq', ['faqs' => $faqs]);
+    }
+
+
+
+        /**
+     * Update who Page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function faqAddPost(Request $request)
+    {
+        $validator = $this->validate($request, [
+            'question' => 'required',
+            'response' => 'required',
+        ]);
+        $faq = new Faq();
+
+        $faq->question = $request->question;
+        $faq->response = $request->response;
+        $faq->ranking = $request->question;
+       
+
+        if ($faq->save()) {
+            return redirect('admin/faq')->with(['alert' => ' FAQ added succesfully']);
+        } else {
+            return redirect()->back()->withErrors($validator);
+        }
+    }
+
+    /**
+     * Update who Page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function faqEditPost(Request $request, $id)
+    {
+        $validator = $this->validate($request, [
+            'question' => 'required',
+            'response' => 'required',
+        ]);
+        $faq = Faq::find($id);
+
+        $faq->question = $request->question;
+        $faq->response = $request->response;
+       
+
+        if ($faq->save()) {
+            return redirect('admin/faq')->with(['alert' => ' FAQ updated succesfully']);
+        } else {
+            return redirect()->back()->withErrors($validator);
+        }
+    }
+
+    /**
+     * Update who Page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function faqDelete(Request $request, $id)
+    {
+
+        $faq = Faq::find($id);
+
+        if ($faq->delete()) {
+            return redirect('admin/faq')->with(['alert' => ' FAQ deleted succesfully']);
+        } else {
+            return redirect()->back()->withErrors($validator);
+        }
+    }
+
+    
 }

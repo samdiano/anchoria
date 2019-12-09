@@ -92,3 +92,8 @@ Route::post('/admin/research', 'AdminController@researchPost')->name('who');
 Route::post('/admin/reports/add', 'AdminController@reportAddPost')->name('who');
 Route::post('/admin/reports/edit/{id}', 'AdminController@reportEditPost')->name('who');
 Route::get('/admin/reports/delete/{id}', 'AdminController@reportDelete')->name('who');
+
+Route::get('/admin/faq', 'AdminController@faq')->name('who');
+Route::post('/admin/faq/add', 'AdminController@faqAddPost')->name('who');
+Route::post('/admin/faq/edit/{id}', 'AdminController@faqEditPost')->name('who');
+Route::get('/admin/faq/delete/{id}', 'AdminController@faqDelete')->name('who');

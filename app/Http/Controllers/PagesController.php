@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Feature;
 use Illuminate\Http\Request;
 use App\Landing;
 use App\Service;
@@ -9,6 +10,7 @@ use App\Slider;
 use App\Who;
 use App\Leadership;
 use App\LeadershipPage;
+use App\MultiFamily;
 
 class PagesController extends Controller
 {
@@ -67,8 +69,9 @@ class PagesController extends Controller
      */
     public function multifamily()
     {
-        $landing = Landing::find(1);
-        return view('multifamily', ['landing' => $landing]);
+        $multifamily = MultiFamily::find(1);
+        $features = Feature::all();
+        return view('multifamily', ['multifamily' => $multifamily, 'features' => $features]);
     }
 
     /**

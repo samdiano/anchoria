@@ -119,10 +119,9 @@
         <div class="container">
             <div class="row justify-content-center pb-4 pt-5">
                 <div class="col-md-6">
-                    <h2 class="text-white gotham-bold font-weight-bld text-center mt-5 pt-5 mb-4 font-40">Multi-Family
-                        Office</h2>
-                    <p class="font-weight-light text-white text-center font-17">Family wealth & legacy are managed with
-                        dedication & expertise.</p>
+                    <h2 class="text-white gotham-bold font-weight-bld text-center mt-5 pt-5 mb-4 font-40">
+                        {{$multifamily->main}}</h2>
+                    <p class="font-weight-light text-white text-center font-17">{{$multifamily->sub}}</p>
                 </div>
             </div>
         </div>
@@ -184,7 +183,7 @@
         <div class="container">
             <div class="row py-5">
                 <div class="col-md-5">
-                    <div style="background-image: url(img/core_values_2.jpg);
+                    <div style="background-image: url({{$multifamily->image_1}});
                                     background-repeat: no-repeat;
                                     background-size: cover;
                                     height: 250px;
@@ -195,14 +194,7 @@
 
 
                 <div class="col-md-5 offset-md-1">
-                    <p>Our multi-family office supports families with the management, organisation and maintenance of
-                        their wealth.</p>
-
-                    <p>Our multi-family office supports families with a wide range of services, bespoke wealth and
-                        investment management strategies to safeguard and increase their wealth. We are dedicated to
-                        helping our clients build, nurture and sustain wealth with ease. We act as the custodians of
-                        investment information, providing clients with a consolidated report on their investments with
-                        various institutions.</p>
+                    <p>{!!$multifamily->side_text!!}</p>
                 </div>
             </div>
 
@@ -248,20 +240,20 @@
     <div class="container">
 
         <div class="row my-5">
-
             <div class="col-md-5">
+                @if (count($features) !== 0)
                 <h4 class="font-weight-bold mb-3 purple-text-default">Features</h4>
+                @endif
                 <ul>
-                    <li class="custom-list my-3">Wealth planning and administration service.</li>
-                    <li class="custom-list my-3">Asset performance monitoring.</li>
-                    <li class="custom-list my-3">Expert Investment Advice.</li>
-                    <li class="custom-list my-3">Risk management.</li>
-                    <li class="custom-list my-3">Minimum of one-year subject to a renewal.</li>
+                    @foreach ($features as $feature)
+                    <li class="custom-list my-3">{{$feature->feature}}</li>
+                    @endforeach
+
                 </ul>
             </div>
 
             <div class="col-md-5 offset-md-1">
-                <div style="background-image: url(img/family_image_2.jpg);
+                <div style="background-image: url({{$multifamily->image_2}});
                                 background-repeat: no-repeat;
                                 background-size: cover;
                                 height: 250px;

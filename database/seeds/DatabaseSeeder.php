@@ -16,7 +16,6 @@ class DatabaseSeeder extends Seeder
             LandingTableSeeder::class,
             WhoTableSeeder::class,
             LeadershipPageTableSeeder::class,
-            FaqTableSeeder::class,
             LiquidityTableSeeder::class,
             MultiFamilyTableSeeder::class,
             OpenAccountTableSeeder::class,
