@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             PortfolioTableSeeder::class,
             ResearchTableSeeder::class,
             StructuredProductTableSeeder::class,
+            ContactTableSeeder::class,
         ]);
     }
 }

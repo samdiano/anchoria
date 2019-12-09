@@ -11,6 +11,15 @@ class ContactTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('contacts')->insert([
+            'main' => '',
+            'banner' => '',
+            'address' => '',
+            'phone' => '',
+            'phone_2' => '',
+            'email' => '',
+            'email_2' => '',
+            'email_3' => '',
+        ]);
     }
 }
