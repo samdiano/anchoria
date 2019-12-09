@@ -107,9 +107,9 @@
             <div class="topbar-left">
                 {{-- <i href="/" class="logo"><span>VFD Group</span><i class="zmdi zmdi-layers"></i></i> --}}
                 <a class="navbar-brand" href="/">
-                    <img src="{{ asset('assets/img/VFD%20Group%20Logo%20PNG.png') }}" width="160"
+                    <img src="{{ asset('/img/aamblacklogo.png') }}" width="160"
                         class="img-fluid hidden-xs hidden-sm visible-md visible-lg" id="main_logo"
-                        alt="VFD Group Logo"></a>
+                        alt="Anchoria Logo"></a>
             </div>
 
             <!-- Button mobile view to collapse sidebar menu -->
