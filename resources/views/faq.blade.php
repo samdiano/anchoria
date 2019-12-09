@@ -256,32 +256,31 @@
 
 				<div class="accordion md-accordion mt-md-5 mt-3" id="accordionExfaq" role="tablist"
 					aria-multiselectable="true">
-
+					@foreach ($faqs as $faq)
 					<div class="card my-3 border-0">
 						<div class="card-header rounded" role="tab" id="faqheading1">
-							<a data-toggle="collapse" data-parent="#accordionExfaq" href="#faq1" aria-expanded="true"
+							<a data-toggle="collapse" data-parent="#accordionExfaq" href="#faq{{$faq->id}}" aria-expanded="true"
 								aria-controls="faq1">
 								<h5 class="mb-0 text_secondary">
-									<span class="gotham-bold">What exactly does Anchoria Asset Management do?
+									<span class="gotham-bold">{{$faq->question}}
 									</span> <i class="fa fa-angle-down rotate-icon"></i>
 								</h5>
 
 							</a>
 						</div>
 
-						<div id="faq1" class="collapse show mb-2" role="tabpanel" aria-labelledby="faqheading1"
+						<div id="faq{{$faq->id}}" class="collapse show mb-2" role="tabpanel" aria-labelledby="faqheading1"
 							data-parent="#accordionExfaq">
 							<div class="card-body pt-0">
 								<hr class="my-2">
-								AAM provides individuals and institutions an opportunity to make extra income by
-								tailoring active products that focus on capital preservation while providing income and
-								asset class diversification.
+								{{$faq->response}}
 							</div>
 						</div>
 					</div>
+					@endforeach
 
 
-					<div class="card my-3 border-0">
+					{{-- <div class="card my-3 border-0">
 
 						<div class="card-header rounded" role="tab" id="faqheading2">
 							<a class="collapsed" data-toggle="collapse" data-parent="#accordionExfaq" href="#faq2"
@@ -537,10 +536,10 @@
 							</div>
 						</div>
 
-					</div>
+					</div> --}}
 
 
-					<div class="card my-3 border-0">
+					{{-- <div class="card my-3 border-0">
 
 						<div class="card-header rounded" role="tab" id="faqheading11">
 							<a class="collapsed" data-toggle="collapse" data-parent="#accordionExfaq" href="#faq11"
@@ -560,7 +559,7 @@
 							</div>
 						</div>
 
-					</div>
+					</div> --}}
 
 				</div>
 

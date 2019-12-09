@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Benefit;
 use App\BenefitLiquidity;
+use App\Faq;
 use App\Feature;
 use Illuminate\Http\Request;
 use App\Landing;
@@ -138,8 +139,8 @@ class PagesController extends Controller
      */
     public function faq()
     {
-        $landing = Landing::find(1);
-        return view('faq', ['landing' => $landing]);
+        $faqs = Faq::all();
+        return view('faq', ['faqs' => $faqs]);
     }
 
     /**
