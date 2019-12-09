@@ -65,7 +65,20 @@
                                         Button Link
                                     </label>
                                     <div class="col-md-9 col-sm-9">
-                                        <input type="url" name="button_link" value="" class="form-control">
+                                        <select name="button_link" class="form-control">
+                                        <option value="{{url('/contact_us')}}">Contact Us</option>
+                                        <option value="{{url('/leaadership')}}">Leadership</option>
+                                        <option value="{{url('/who')}}">Who</option>
+                                        <option value="{{url('/multifamily')}}">Multi Family Office</option>
+                                        <option value="{{url('/portfolio')}}">Portfolio Management</option>
+                                        <option value="{{url('/liquidity')}}">Liquidity Management</option>
+                                        <option value="{{url('/structured_products')}}">Structured Products</option>
+                                        <option value="{{url('/mutual_funds')}}">Mutual Funds</option>
+                                        <option value="{{url('/account_opening')}}">Open Account</option>
+                                        <option value="{{url('/research')}}">Research</option>
+                                        <option value="{{url('/faq')}}">FAQs</option>
+                                        </select>
+                                        {{-- <input type="url" name="button_link" value="" class="form-control"> --}}
                                     </div>
                                 </div>
                                 {{-- <div class="form-group"> --}}
