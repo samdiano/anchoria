@@ -103,7 +103,7 @@
                     <li class="nav-item px-md-2 my-2 my-md-0 active-link">
                         <a class="nav-link bold" href="{{url('login')}}">Login</a>
                     </li>
-                    
+
                     <li class="nav-item pl-md-3 pr-md-5 my-2 my-md-0">
                         <a class="nav-link bold" href="javascript.void()" data-toggle="modal"
                             data-target=".bd-example-modal-lg"><img src="img/search.svg" alt="search" width="20"
@@ -120,10 +120,9 @@
         <div class="container">
             <div class="row justify-content-center pb-4 pt-5">
                 <div class="col-md-6">
-                    <h2 class="text-white gotham-bold font-weight-bld text-center mt-5 pt-5 mb-4 font-40">Portfolio
-                        Management</h2>
-                    <p class="font-weight-light text-white text-center font-17">With our team of professionals, we offer
-                        a well-tailored financial services to meet our clients’ investment aspirations.</p>
+                    <h2 class="text-white gotham-bold font-weight-bld text-center mt-5 pt-5 mb-4 font-40">
+                        {{$portfolio->main}}</h2>
+                    <p class="font-weight-light text-white text-center font-17">{{$portfolio->sub}}</p>
                 </div>
             </div>
         </div>
@@ -185,7 +184,7 @@
         <div class="container">
             <div class="row py-5">
                 <div class="col-md-5 my-2">
-                    <div style="background-image: url(img/portfolio_1.jpg);
+                    <div style="background-image: url({{$portfolio->image_path}});
                                     background-repeat: no-repeat;
                                     background-size: cover;
                                     height: 250px;
@@ -195,18 +194,8 @@
                 </div>
 
                 <div class="col-md-6 offset-md-1 my-2 text-justify">
-                    <p class="">Portfolio Management is about determining strengths, weaknesses, opportunities and
-                        threats in the choice of debt versus equity, growth versus safety, domestic versus international
-                        and other tradeoffs in the attempt to maximize return at a given risk appetite.
+                    <p class="">{!!$portfolio->sid_txt!!}
                     </p>
-
-                    <p>At Anchoria Asset Management Limited, we provide customized investment solutions tailored to
-                        clients’ specific financial objectives. We manage the fund by investing in a range of financial
-                        instruments ranging from traditional asset classes to structed financial instruments in line
-                        with clients’ investment policy. Supported by our deep understanding of the local market, our
-                        team of investment professionals identify investment solutions with competitive returns,
-                        balancing risk against performance to match clients’ risk appetite. We augment these services
-                        with robust execution capabilities.</p>
                 </div>
             </div>
 
@@ -253,40 +242,27 @@
 
         <div class="row my-5">
             <div class="col-md-8">
+                @if (count($services) !== 0)
                 <h4 class="font-weight-bold mb-3 purple-text-default">Our portfolio management services are classified
                     into:</h4>
+                @endif
             </div>
         </div>
 
         <div class="row my-5">
+            @foreach ($services as $service)
             <div class="col-md-6">
                 <div>
                     <ul>
-                        <li class="custom-list my-3"><span class="font-weight-700">Discretionary:</span> <br />
-                            under this service, the choice as well as the timings of the investment decisions rest
-                            solely with the portfolio manager.
+                        <li class="custom-list my-3"><span class="font-weight-700">{{$service->class}}:</span> <br />
+                            {!!$service->description!!}
                         </li>
                     </ul>
 
                 </div>
             </div>
-
-            <div class="col-md-6">
-                <div>
-                    <ul>
-
-                        <li class="custom-list my-3"><span class="font-weight-700">Non-discretionary </span> <br />
-                            under this service, the portfolio manager provides guidance on various investment options.
-                            The choice as well as the timings of the investment decisions rest solely with the investor.
-                            However, the execution of the trade is done by the portfolio manager.</li>
-
-                    </ul>
-
-                </div>
-            </div>
+            @endforeach
         </div>
-
-
     </div>
 
     <div class="section-2-home">
@@ -295,12 +271,7 @@
 
             <div class="row py-5 justify-content-center text-center">
                 <div class="col-md-8 my-2">
-                    <p>Our investment strategy is focused on generating competitive returns through carefully selected
-                        investment solutions and investment in strategic asset allocation based on investor’s risk
-                        profile. Maximizing investors invested returns for a given level of risk. Strategic asset
-                        allocation where the portfolio mix is fix according to the investor’s profile.</p>
-
-                    <p>The advisory/management fee shall be payable to the asset manager.</p>
+                    <p>{{$portfolio->footer_text}}</p>
                 </div>
             </div>
 

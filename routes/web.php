@@ -14,7 +14,7 @@
 Route::get('/', 'PagesController@index')->name('welcome');
 Route::get('/who', 'PagesController@who')->name('who');
 Route::get('/leadership', 'PagesController@leadership')->name('leadership');
-Route::get('/liquiidity', 'PagesController@liquiidity')->name('liquiidity');
+Route::get('/liquidity', 'PagesController@liquidity')->name('liquidity');
 Route::get('/research', 'PagesController@research')->name('research');
 Route::get('/account_opening', 'PagesController@account_opening')->name('account_opening');
 Route::get('/contact_us', 'PagesController@contact_us')->name('contact_us');

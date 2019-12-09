@@ -11,6 +11,8 @@ use App\Who;
 use App\Leadership;
 use App\LeadershipPage;
 use App\MultiFamily;
+use App\Portfolio;
+use App\PortfolioService;
 
 class PagesController extends Controller
 {
@@ -92,8 +94,9 @@ class PagesController extends Controller
      */
     public function portfolio()
     {
-        $landing = Landing::find(1);
-        return view('portfolio', ['landing' => $landing]);
+        $portfolio = Portfolio::find(1);
+        $services = PortfolioService::all();
+        return view('portfolio', ['portfolio' => $portfolio, 'services' => $services]);
     }
 
     /**
