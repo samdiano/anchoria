@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title','Liquidity Management')
+@section('title','Research')
 
 @section('content')
 <div class="content-page">
@@ -11,7 +11,7 @@
                     <div class="card-box">
                         <div class="row">
                             @include('partial.alert')
-                            <form class="form-horizontal" action="{{ url('admin/liquidity') }}" method="post"
+                            <form class="form-horizontal" action="{{ url('admin/research') }}" method="post"
                                 enctype="multipart/form-data" role="form">
                                 {{ csrf_field() }}
                                 <div class="form-group">
@@ -20,12 +20,11 @@
                                     </label>
                                     <div class="col-md-5 col-sm-9">
                                         <h3>Main Text</h3>
-                                        <input type="text" class="form-control" name="main"
-                                            value="{{$liquidity->main}}">
+                                        <input type="text" class="form-control" name="main" value="{{$research->main}}">
                                     </div>
                                     <div class="col-md-4 col-sm-9">
                                         <h3>Sub Text</h3>
-                                        <input type="text" class="form-control" name="sub" value="{{$liquidity->sub}}">
+                                        <input type="text" class="form-control" name="sub" value="{{$research->sub}}">
                                     </div>
                                 </div>
 
@@ -37,7 +36,7 @@
                                     <div class="col-md-10 col-sm-5">
                                         <h3>Text</h3>
                                         <textarea class="form-control"
-                                            name="features">{{$liquidity->features}}</textarea>
+                                            name="hero_text">{{$research->hero_text}}</textarea>
                                     </div>
                                 </div>
 
@@ -46,7 +45,7 @@
                                         {{-- Slider --}}
                                     </label>
                                     <div class="col-md-4 col-sm-9">
-                                        <h3>Upload Image</h3>
+                                        <h3>Banner Image</h3>
                                         <label class="btn btn-primary">
                                             <input type="file" name="image" accept="image/*" class="form-control">
                                             <i class="fa fa-photo"></i> Add file
@@ -54,40 +53,44 @@
                                     </div>
                                     <div class="col-md-6 col-sm-6">
                                         <div class="table-responsive" data-pattern="priority-columns">
-                                            @if(count($benefits) < 1) <br><br>
+                                            @if(count($reports) < 1) <br><br>
                                                 <div class="alert alert-info text-center">
-                                                    <p>There are no benefits added yet</p>
-                                                    <a class="btn btn-info" data-toggle="modal" data-target="#benefit"
-                                                        href="#">Add Benefit</a>
+                                                    <p>There are no reports added yet</p>
+                                                    <a class="btn btn-info" data-toggle="modal" data-target="#report"
+                                                        href="#">Add Report</a>
                                                 </div>
                                                 @else
                                                 <br><br>
-                                                <a class="btn btn-info" data-toggle="modal" data-target="#benefit"
-                                                    href="#">Add Benefit</a>
+                                                <a class="btn btn-info" data-toggle="modal" data-target="#report"
+                                                    href="#">Add Report</a>
                                                 <table id="tech-companies-1" class="table  table-striped">
                                                     <thead>
                                                         <tr>
-                                                            <th>Benefit</th>
+                                                            <th>Report</th>
+                                                            <th>Type</th>
+                                                            <th>Date</th>
                                                             <th>Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        @foreach($benefits as $benefit)
+                                                        @foreach($reports as $report)
                                                         <tr>
-                                                            <td>{{ $benefit->benefit }}</td>
+                                                            <td>{{ $report->title }}</td>
+                                                            <td>{{ $report->type }}</td>
+                                                            <td>{{ $report->date }}</td>
 
                                                             <td>
 
                                                                 <a class="btn btn-info" data-toggle="modal"
-                                                                    data-target="#benefit{{$benefit->id}}" href="#"><i
+                                                                    data-target="#report{{$report->id}}" href="#"><i
                                                                         class="zmdi zmdi-edit"></i></a>
 
-                                                                <a data-toggle="modal" data-target="#{{$benefit->id}}"
+                                                                <a data-toggle="modal" data-target="#{{$report->id}}"
                                                                     href="#" class="btn btn-danger"><i
                                                                         class="zmdi zmdi-delete"></i></a>
                                                             </td>
                                                         </tr>
-                                                        <div id="{{$benefit->id}}" tabindex="-1" role="dialog" style=""
+                                                        <div id="{{$report->id}}" tabindex="-1" role="dialog" style=""
                                                             class="modal fade">
                                                             <div class="modal-dialog">
                                                                 <div class="modal-content">
@@ -107,7 +110,7 @@
                                                                                 <button type="button"
                                                                                     data-dismiss="modal"
                                                                                     class="btn btn-space btn-default">Cancel</button>
-                                                                                <a href="{{ url('admin/benefits/liquidity/delete', ['id' => $benefit->id])}}"
+                                                                                <a href="{{ url('admin/reports/delete', ['id' => $report->id])}}"
                                                                                     class="btn btn-space btn-danger"
                                                                                     type="submit">Delete</a>
                                                                             </div>
@@ -135,7 +138,7 @@
                                 </div>
                             </form>
 
-                            <div id="benefit" tabindex="-1" role="dialog" style="" class="modal fade">
+                            <div id="report" tabindex="-1" role="dialog" style="" class="modal fade">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -147,19 +150,30 @@
                                                 <div class="text-danger"><span
                                                         class="modal-main-icon mdi mdi-close-circle-o"></span>
                                                 </div>
-                                                <h3>Add Benefit</h3>
+                                                <h3>Add Report</h3>
                                                 {{-- <h3>Warning!</h3> --}}
                                                 {{-- <p>Chan</p> --}}
-                                                <form class="form-horizontal"
-                                                    action="{{ url('admin/benefits/liquidity/add') }}" method="post"
-                                                    enctype="multipart/form-data" role="form">
+                                                <form class="form-horizontal" action="{{ url('admin/reports/add') }}"
+                                                    method="post" enctype="multipart/form-data" role="form">
                                                     {{ csrf_field() }}
                                                     <div class="row">
 
+                                                        <div class="form-group text-center">
+                                                            <div class=" col-md-offset-1 col-md-10 col-sm-10">
+                                                                <h4>Report</h4>
+                                                                <input type="text" name="title" class="form-control">
+                                                            </div>
+                                                        </div>
                                                         <div class="form-group">
-                                                            <div class="col-md-12 col-sm-12">
-                                                                <h4>Benefit</h4>
-                                                                <input type="text" name="benefit" class="form-control">
+                                                            <div class=" col-md-offset-1 col-md-10 col-sm-10">
+                                                                <h4>Type</h4>
+                                                                <input type="text" name="type" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class=" col-md-offset-1 col-md-10 col-sm-10">
+                                                                <h4>Date</h4>
+                                                                <input type="date" name="date" class="form-control">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -168,7 +182,7 @@
                                                         <button type="button" data-dismiss="modal"
                                                             class="btn btn-space btn-default">Cancel</button>
                                                         <button class="btn btn-space btn-success" type="submit">Add
-                                                            Benefit</button>
+                                                            Report</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -177,9 +191,9 @@
                                     </div>
                                 </div>
                             </div>
-                            @foreach ($benefits as $benefit)
+                            @foreach ($reports as $report)
 
-                            <div id="benefit{{$benefit->id}}" tabindex="-1" role="dialog" style="" class="modal fade">
+                            <div id="report{{$report->id}}" tabindex="-1" role="dialog" style="" class="modal fade">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -191,30 +205,41 @@
                                                 <div class="text-danger"><span
                                                         class="modal-main-icon mdi mdi-close-circle-o"></span>
                                                 </div>
-                                                <h3>Edit Benefit</h3>
+                                                <h3>Edit Report</h3>
                                                 {{-- <h3>Warning!</h3> --}}
                                                 {{-- <p>Chan</p> --}}
                                                 <form class="form-horizontal"
-                                                    action="{{ url('admin/benefits/liquidity/edit', ['id' => $benefit->id]) }}"
+                                                    action="{{ url('admin/reports/edit', ['id' => $report->id]) }}"
                                                     method="post" enctype="multipart/form-data" role="form">
                                                     {{ csrf_field() }}
                                                     <div class="row">
 
                                                         <div class="form-group">
-                                                            <div class="col-md-12 col-sm-12">
-                                                                <h4>Benefit</h4>
-                                                                <input type="text" name="benefit" class="form-control"
-                                                                    value="{{$benefit->benefit}}">
+                                                            <div class=" col-md-offset-1 col-md-10 col-sm-10">
+                                                                <h4>Report</h4>
+                                                                <input type="text" name="title" class="form-control" value="{{$report->title}}">
                                                             </div>
                                                         </div>
-                                                        
+                                                        <div class="form-group">
+                                                            <div class=" col-md-offset-1 col-md-10 col-sm-10">
+                                                                <h4>Type</h4>
+                                                                <input type="text" name="type" class="form-control" value="{{$report->type}}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class=" col-md-offset-1 col-md-10 col-sm-10">
+                                                                <h4>Date</h4>
+                                                                <input type="date" name="date" class="form-control" value="{{$report->date}}">
+                                                            </div>
+                                                        </div>
+
                                                     </div>
 
                                                     <div class="xs-mt-50">
                                                         <button type="button" data-dismiss="modal"
                                                             class="btn btn-space btn-default">Cancel</button>
                                                         <button class="btn btn-space btn-success" type="submit">Edit
-                                                            Benefit</button>
+                                                            Report</button>
                                                     </div>
                                                 </form>
                                             </div>

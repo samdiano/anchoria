@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Benefit;
+use App\BenefitLiquidity;
 use Illuminate\Http\Request;
 use App\Landing;
 use App\Slider;
@@ -13,7 +14,10 @@ use App\Feature;
 use App\Liquidity;
 use App\Portfolio;
 use App\PortfolioService;
+use App\Report;
+use App\Research;
 use App\Service;
+use App\StructuredProduct;
 use App\Who;
 
 class AdminController extends Controller
@@ -54,7 +58,7 @@ class AdminController extends Controller
         $landing = Landing::find(1);
         $landing->hero = $request->hero;
         $landing->services = $request->services;
-    
+
         if ($landing->save()) {
             return redirect('admin/landing')->with(['landing' => $landing, 'alert' => ' Content updated succesfully']);
         } else {
@@ -93,7 +97,7 @@ class AdminController extends Controller
         $slider->sub = $request->sub;
         $slider->button_text = $request->button_text;
         $slider->button_link = $request->button_link;
-    
+
         if ($slider->save()) {
             return redirect('admin/landing')->with(['landing' => $landing, 'alert' => ' Content updated succesfully']);
         } else {
@@ -132,7 +136,7 @@ class AdminController extends Controller
         $service->name = $request->name;
         $service->description = $request->sub;
         $service->sub_text = $request->sub;
-        
+
         if ($service->save()) {
             return redirect('admin/landing')->with(['landing' => $landing, 'alert' => ' Content updated succesfully']);
         } else {
@@ -185,7 +189,7 @@ class AdminController extends Controller
         $who->client_focus = $request->client_focus;
         $who->leadership = $request->leadership;
         $who->collaboration = $request->collaboration;
-        
+
         if ($who->save()) {
             return redirect('admin/who')->with(['alert' => ' Content updated succesfully']);
         } else {
@@ -225,7 +229,7 @@ class AdminController extends Controller
         }
         $leadership->main = $request->main;
         $leadership->sub = $request->sub;
-        
+
         if ($leadership->save()) {
             return redirect('admin/leadership')->with(['alert' => ' Content updated succesfully']);
         } else {
@@ -289,7 +293,7 @@ class AdminController extends Controller
         $leadership->description = $request->description;
         $leadership->ranking = $max_info + 1;
         $leadership->linkedin = $request->linkedin;
-        
+
         if ($leadership->save()) {
             return redirect('admin/leadership')->with(['alert' => ' Content updated succesfully']);
         } else {
@@ -333,9 +337,9 @@ class AdminController extends Controller
                 $info->save();
             }
             $saved = $leadership->save();
-    
+
             $info = Leadership::orderByRaw('LENGTH(ranking)', 'ASC')->orderBy('ranking', 'ASC')->get();
-    
+
             $index = $request->rank;
             // return $request->rank;
             foreach ($info as $key => $info) {
@@ -360,7 +364,7 @@ class AdminController extends Controller
         $leadership->description = $request->description;
         // $leadership->ranking = $max_info + 1;
         $leadership->linkedin = $request->linkedin;
-        
+
         if ($leadership->save()) {
             return redirect('admin/leadership')->with(['alert' => ' Content updated succesfully']);
         } else {
@@ -382,38 +386,38 @@ class AdminController extends Controller
         $leadership = Leadership::find($id);
 
         // if ($leadership->rank !== $request->rank) {
-            # code...
-            $leadership->ranking = $request->rank;
+        # code...
+        $leadership->ranking = $request->rank;
 
-            $info = Leadership::orderByRaw('LENGTH(ranking)', 'ASC')->orderBy('ranking', 'ASC')->get();
-            foreach ($info as $key => $info) {
-                # code...rank
-                if ($info->ranking == $request->rank) {
-                    # code...
-                    $info->ranking += 1;
-                }
-                $info->save();
-            }
-            $saved = $leadership->save();
-    
-            $info = Leadership::orderByRaw('LENGTH(ranking)', 'ASC')->orderBy('ranking', 'ASC')->get();
-    
-            $index = $request->rank;
-            // return $request->rank;
-            foreach ($info as $key => $info) {
+        $info = Leadership::orderByRaw('LENGTH(ranking)', 'ASC')->orderBy('ranking', 'ASC')->get();
+        foreach ($info as $key => $info) {
+            # code...rank
+            if ($info->ranking == $request->rank) {
                 # code...
-                if (($info->ranking > $request->rank)) {
-                    # code...
-                    $index += 1;
-                    // return $index;
-                    $info->ranking = 0;
-                    $info->ranking = $index;
-                }
-                $info->save();
+                $info->ranking += 1;
             }
+            $info->save();
+        }
+        $saved = $leadership->save();
+
+        $info = Leadership::orderByRaw('LENGTH(ranking)', 'ASC')->orderBy('ranking', 'ASC')->get();
+
+        $index = $request->rank;
+        // return $request->rank;
+        foreach ($info as $key => $info) {
+            # code...
+            if (($info->ranking > $request->rank)) {
+                # code...
+                $index += 1;
+                // return $index;
+                $info->ranking = 0;
+                $info->ranking = $index;
+            }
+            $info->save();
+        }
         // }
 
-        
+
         if ($saved) {
             return redirect('admin/leadership')->with(['alert' => ' Ranking changed succesfully']);
         } else {
@@ -430,7 +434,7 @@ class AdminController extends Controller
     {
         $multifamily = MultiFamily::find(1);
         $features = Feature::all();
-        return view('admin.multifamily.multifamily', [ 'multifamily' => $multifamily, 'features' => $features]);
+        return view('admin.multifamily.multifamily', ['multifamily' => $multifamily, 'features' => $features]);
     }
 
     /**
@@ -457,7 +461,7 @@ class AdminController extends Controller
         $multifamily->main = $request->main;
         $multifamily->sub = $request->sub;
         $multifamily->side_text = $request->side_text;
-        
+
         if ($multifamily->save()) {
             return redirect('admin/multi-family')->with(['alert' => ' Content updated succesfully']);
         } else {
@@ -478,7 +482,7 @@ class AdminController extends Controller
         $feature = new Feature();
 
         $feature->feature = $request->feature;
-        
+
         if ($feature->save()) {
             return redirect('admin/multi-family')->with(['alert' => ' Feature added succesfully']);
         } else {
@@ -499,7 +503,7 @@ class AdminController extends Controller
         $feature = Feature::find($id);
 
         $feature->feature = $request->feature;
-        
+
         if ($feature->save()) {
             return redirect('admin/multi-family')->with(['alert' => ' Feature updated succesfully']);
         } else {
@@ -514,9 +518,9 @@ class AdminController extends Controller
      */
     public function featureDelete(Request $request, $id)
     {
-        
+
         $feature = Feature::find($id);
-        
+
         if ($feature->delete()) {
             return redirect('admin/multi-family')->with(['alert' => ' Feature deleted succesfully']);
         } else {
@@ -534,7 +538,7 @@ class AdminController extends Controller
     {
         $portfolio = Portfolio::find(1);
         $services = PortfolioService::all();
-        return view('admin.portfolio.portfolio', [ 'portfolio' => $portfolio, 'services' => $services]);
+        return view('admin.portfolio.portfolio', ['portfolio' => $portfolio, 'services' => $services]);
     }
 
     /**
@@ -554,12 +558,12 @@ class AdminController extends Controller
             $filename = $request->image->store('images', 'public');
             $portfolio->image_path = $filename;
         }
-    
+
         $portfolio->main = $request->main;
         $portfolio->sub = $request->sub;
         $portfolio->side_text = $request->side_text;
         $portfolio->footer_text = $request->footer_text;
-        
+
         if ($portfolio->save()) {
             return redirect('admin/portfolio')->with(['alert' => ' Content updated succesfully']);
         } else {
@@ -582,7 +586,7 @@ class AdminController extends Controller
 
         $portfolioService->class = $request->class;
         $portfolioService->description = $request->description;
-        
+
         if ($portfolioService->save()) {
             return redirect('admin/portfolio')->with(['alert' => ' Service Class added succesfully']);
         } else {
@@ -605,7 +609,7 @@ class AdminController extends Controller
 
         $portfolioService->class = $request->class;
         $portfolioService->description = $request->description;
-        
+
         if ($portfolioService->save()) {
             return redirect('admin/portfolio')->with(['alert' => ' Service Class updated succesfully']);
         } else {
@@ -620,9 +624,9 @@ class AdminController extends Controller
      */
     public function portfolioServiceDelete(Request $request, $id)
     {
-        
+
         $feature = PortfolioService::find($id);
-        
+
         if ($feature->delete()) {
             return redirect('admin/portfolio')->with(['alert' => ' Service Class deleted succesfully']);
         } else {
@@ -638,8 +642,8 @@ class AdminController extends Controller
     public function liquidity()
     {
         $liquidity = Liquidity::find(1);
-        $benefits = Benefit::all();
-        return view('admin.liquidity.liquidity', [ 'liquidity' => $liquidity, 'benefits' => $benefits]);
+        $benefits = BenefitLiquidity::all();
+        return view('admin.liquidity.liquidity', ['liquidity' => $liquidity, 'benefits' => $benefits]);
     }
 
     /**
@@ -659,13 +663,115 @@ class AdminController extends Controller
             $filename = $request->image->store('images', 'public');
             $liquidity->image_path = $filename;
         }
-    
+
         $liquidity->main = $request->main;
         $liquidity->sub = $request->sub;
         $liquidity->features = $request->features;
-        
+
         if ($liquidity->save()) {
             return redirect('admin/liquidity')->with(['alert' => ' Content updated succesfully']);
+        } else {
+            return redirect()->back()->withErrors($validator);
+        }
+    }
+
+    /**
+     * Update who Page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function benefitLiquidityAddPost(Request $request)
+    {
+        $validator = $this->validate($request, [
+            'benefit' => 'required',
+        ]);
+        $benefit = new BenefitLiquidity();
+
+        $benefit->benefit = $request->benefit;
+
+        if ($benefit->save()) {
+            return redirect('admin/liquidity')->with(['alert' => ' Benefit added succesfully']);
+        } else {
+            return redirect()->back()->withErrors($validator);
+        }
+    }
+
+    /**
+     * Update who Page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function benefitLiquidityEditPost(Request $request, $id)
+    {
+        $validator = $this->validate($request, [
+            'benefit' => 'required',
+        ]);
+        $benefit = BenefitLiquidity::find($id);
+
+        $benefit->benefit = $request->benefit;
+
+        if ($benefit->save()) {
+            return redirect('admin/liquidity')->with(['alert' => ' Benefit updated succesfully']);
+        } else {
+            return redirect()->back()->withErrors($validator);
+        }
+    }
+
+    /**
+     * Update who Page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function benefitLiquidityDelete(Request $request, $id)
+    {
+
+        $benefit = BenefitLiquidity::find($id);
+
+        if ($benefit->delete()) {
+            return redirect('admin/liquidity')->with(['alert' => ' Feature deleted succesfully']);
+        } else {
+            return redirect()->back()->withErrors($validator);
+        }
+    }
+
+
+
+    /**
+     * Show the admin who are we page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function structured()
+    {
+        $liquidity = StructuredProduct::find(1);
+        $benefits = Benefit::all();
+        return view('admin.structured.structured', ['liquidity' => $liquidity, 'benefits' => $benefits]);
+    }
+
+    /**
+     * Update service Page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function structuredPost(Request $request)
+    {
+        $validator = $this->validate($request, [
+            'main' => 'required',
+            'sub' => 'required',
+        ]);
+        $liquidity = StructuredProduct::find(1);
+
+        if ($request->hasFile('image')) {
+            $filename = $request->image->store('images', 'public');
+            $liquidity->image_path = $filename;
+        }
+
+        $liquidity->main = $request->main;
+        $liquidity->sub = $request->sub;
+        $liquidity->features = $request->features;
+
+        if ($liquidity->save()) {
+            return redirect('admin/structured-products')->with(['alert' => ' Content updated succesfully']);
         } else {
             return redirect()->back()->withErrors($validator);
         }
@@ -684,9 +790,9 @@ class AdminController extends Controller
         $benefit = new Benefit();
 
         $benefit->benefit = $request->benefit;
-        
+
         if ($benefit->save()) {
-            return redirect('admin/liquidity')->with(['alert' => ' Benefit added succesfully']);
+            return redirect('admin/structured-products')->with(['alert' => ' Benefit added succesfully']);
         } else {
             return redirect()->back()->withErrors($validator);
         }
@@ -705,9 +811,9 @@ class AdminController extends Controller
         $benefit = Benefit::find($id);
 
         $benefit->benefit = $request->benefit;
-        
+
         if ($benefit->save()) {
-            return redirect('admin/liquidity')->with(['alert' => ' Benefit updated succesfully']);
+            return redirect('admin/structured-products')->with(['alert' => ' Benefit updated succesfully']);
         } else {
             return redirect()->back()->withErrors($validator);
         }
@@ -720,17 +826,125 @@ class AdminController extends Controller
      */
     public function benefitDelete(Request $request, $id)
     {
-        
+
         $benefit = Benefit::find($id);
-        
+
         if ($benefit->delete()) {
-            return redirect('admin/liquidity')->with(['alert' => ' Feature deleted succesfully']);
+            return redirect('admin/structured-products')->with(['alert' => ' Benefit deleted succesfully']);
+        } else {
+            return redirect()->back()->withErrors($validator);
+        }
+    }
+
+    /**
+     * Show the admin who are we page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function research()
+    {
+        $research = Research::find(1);
+        $reports = Report::all();
+        return view('admin.research.research', ['research' => $research, 'reports' => $reports]);
+    }
+
+    /**
+     * Update service Page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function researchPost(Request $request)
+    {
+        $validator = $this->validate($request, [
+            'main' => 'required',
+            'sub' => 'required',
+        ]);
+        $research = Research::find(1);
+
+        if ($request->hasFile('image')) {
+            $filename = $request->image->store('images', 'public');
+            $research->banner = $filename;
+        }
+
+        $research->main = $request->main;
+        $research->sub = $request->sub;
+        $research->hero_text = $request->hero_text;
+
+        if ($research->save()) {
+            return redirect('admin/research')->with(['alert' => ' Content updated succesfully']);
         } else {
             return redirect()->back()->withErrors($validator);
         }
     }
 
 
+    /**
+     * Update who Page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function reportAddPost(Request $request)
+    {
+        $validator = $this->validate($request, [
+            'title' => 'required',
+            'type' => 'required',
+            'date' => 'required',
+        ]);
+        $report = new Report();
+
+        $report->title = $request->title;
+        $report->type = $request->type;
+        $report->date = $request->date;
+        $report->ranking = $request->type;
 
 
+        if ($report->save()) {
+            return redirect('admin/research')->with(['alert' => ' Report added succesfully']);
+        } else {
+            return redirect()->back()->withErrors($validator);
+        }
+    }
+
+    /**
+     * Update who Page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function reportEditPost(Request $request, $id)
+    {
+        $validator = $this->validate($request, [
+            'title' => 'required',
+            'type' => 'required',
+            'date' => 'required',
+        ]);
+        $report = Report::find($id);
+
+        $report->title = $request->title;
+        $report->type = $request->type;
+        $report->date = $request->date;
+        $report->ranking = $request->type;
+
+        if ($report->save()) {
+            return redirect('admin/research')->with(['alert' => ' Report updated succesfully']);
+        } else {
+            return redirect()->back()->withErrors($validator);
+        }
+    }
+
+    /**
+     * Update who Page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function reportDelete(Request $request, $id)
+    {
+
+        $report = Report::find($id);
+
+        if ($report->delete()) {
+            return redirect('admin/research')->with(['alert' => ' Report deleted succesfully']);
+        } else {
+            return redirect()->back()->withErrors($validator);
+        }
+    }
 }

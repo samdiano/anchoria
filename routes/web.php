@@ -74,6 +74,21 @@ Route::get('/admin/portfolio-services/delete/{id}', 'AdminController@portfolioSe
 Route::get('/admin/liquidity', 'AdminController@liquidity')->name('who');
 Route::post('/admin/liquidity', 'AdminController@liquidityPost')->name('who');
 
+Route::post('/admin/benefits/liquidity/add', 'AdminController@benefitLiquidityAddPost')->name('who');
+Route::post('/admin/benefits/liquidity/edit/{id}', 'AdminController@benefitLiquidityEditPost')->name('who');
+Route::get('/admin/benefits/liquidity/delete/{id}', 'AdminController@benefitLiquidityDelete')->name('who');
+
+Route::get('/admin/structured-products', 'AdminController@structured')->name('who');
+Route::post('/admin/structured-products', 'AdminController@structuredPost')->name('who');
+
 Route::post('/admin/benefits/add', 'AdminController@benefitAddPost')->name('who');
 Route::post('/admin/benefits/edit/{id}', 'AdminController@benefitEditPost')->name('who');
 Route::get('/admin/benefits/delete/{id}', 'AdminController@benefitDelete')->name('who');
+
+
+Route::get('/admin/research', 'AdminController@research')->name('who');
+Route::post('/admin/research', 'AdminController@researchPost')->name('who');
+
+Route::post('/admin/reports/add', 'AdminController@reportAddPost')->name('who');
+Route::post('/admin/reports/edit/{id}', 'AdminController@reportEditPost')->name('who');
+Route::get('/admin/reports/delete/{id}', 'AdminController@reportDelete')->name('who');
