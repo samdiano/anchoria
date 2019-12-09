@@ -16,6 +16,7 @@ use App\Liquidity;
 use App\MultiFamily;
 use App\Portfolio;
 use App\PortfolioService;
+use App\Report;
 use App\Research;
 use App\StructuredProduct;
 
@@ -114,7 +115,7 @@ class PagesController extends Controller
     {
         $research = Research::find(1);
         $reports = Report::all();
-        return view('research', ['landing' => $landing, 'research' => $research]);
+        return view('research', ['reports' => $reports, 'research' => $research]);
     }
 
     /**

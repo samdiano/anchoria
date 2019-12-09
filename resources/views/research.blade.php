@@ -119,9 +119,8 @@
         <div class="container">
             <div class="row justify-content-center pb-4 pt-5">
                 <div class="col-md-6">
-                    <h2 class="text-white gotham-bold font-weight-bld text-center mt-5 pt-5 mb-4 font-40">Research</h2>
-                    <p class="font-weight-light text-white text-center font-17">Information is power. Let’s help you
-                        stay informed.</p>
+                    <h2 class="text-white gotham-bold font-weight-bld text-center mt-5 pt-5 mb-4 font-40">{{$research->main}}</h2>
+                    <p class="font-weight-light text-white text-center font-17">{{$research->sub}}</p>
                 </div>
             </div>
         </div>
@@ -218,10 +217,7 @@
         <div class="container">
             <div class="row justify-content-center pb-4">
                 <div class="col-md-7">
-                    <p class="text-center mt-md-5">Our research team tracks economic and market data for performance of
-                        all major asset classes in Nigeria and globally to help spot trends and develop new
-                        opportunities for our clients. We use these insights to give our clients an edge in creating
-                        investment strategies and portfolios that provide enduring wealth.
+                    <p class="text-center mt-md-5">{!!$research->hero_text!!}
                     </p>
                 </div>
             </div>
