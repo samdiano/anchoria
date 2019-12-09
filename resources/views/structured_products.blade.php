@@ -120,10 +120,9 @@
         <div class="container">
             <div class="row justify-content-center pb-4 pt-5">
                 <div class="col-md-6">
-                    <h2 class="text-white gotham-bold font-weight-bld text-center mt-5 pt-5 mb-4 font-40">Structured
-                        Products</h2>
-                    <p class="font-weight-light text-white text-center font-17">We offer a profitable investment plan
-                        with well-structured products that suit our clients’ lifestyle</p>
+                    <h2 class="text-white gotham-bold font-weight-bld text-center mt-5 pt-5 mb-4 font-40">
+                        {{$structured->main}}</h2>
+                    <p class="font-weight-light text-white text-center font-17">{{$structured->sub}}</p>
                 </div>
             </div>
         </div>
@@ -185,14 +184,11 @@
         <div class="container">
             <div class="row py-5 justify-content-center text-center">
                 <div class="col-md-8 my-2">
+                    @if ($structured->features)
                     <h3 class="font-weight-bold mb-3 purple-text-default">Features</h3>
 
-                    <p class="">We provide investors with the opportunity to invest in diversified, high yield,
-                        carefully selected corporate and government issued asset classes designed to facilitate highly
-                        customized risk-return objectives.</p>
-
-                    <p>Our structured products are managed by our risk and investment management experts embedded and
-                        operating in our day-to-day investment activities.</p>
+                    <p class="">{!!$structured->side_text!!}</p>
+                    @endif
                 </div>
             </div>
 
@@ -239,14 +235,16 @@
     <div class="container">
         <div class="row justify-content-center mt-3">
             <div class="col-md-6">
+                @if (count($benefits) !== 0)
                 <h3 class="purple-text-default gotham-bold font-weight-bold text-center">Benefits</h3>
+                @endif
             </div>
         </div>
 
         <div class="row my-5">
 
             <div class="col-md-5 my-2">
-                <div style="background-image: url(img/structured.jpg);
+                <div style="background-image: url({{$structured->image_path}});
                                 background-repeat: no-repeat;
                                 background-size: cover;
                                 height: 250px;
@@ -256,13 +254,10 @@
 
             <div class="col-md-5 offset-md-1">
                 <ul class="">
+                    @foreach ($benefits as $benefit)
                     <li class="custom-list mb-3">Investment can be in Naira or Foreign Currency</li>
-                    <li class="custom-list my-3">Easy exit option</li>
-                    <li class="custom-list my-3">Varying tenors</li>
-                    <li class="custom-list my-3">Flexibility of investment</li>
-                    <li class="custom-list my-3">Diversified pool of investment, thereby reducing issuer and
-                        concentration risks</li>
-                    <li class="custom-list my-3">Can be used as a savings plan towards specific events</li>
+                    @endforeach
+
                 </ul>
             </div>
         </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Benefit;
 use App\BenefitLiquidity;
 use App\Feature;
 use Illuminate\Http\Request;
@@ -15,6 +16,8 @@ use App\Liquidity;
 use App\MultiFamily;
 use App\Portfolio;
 use App\PortfolioService;
+use App\Research;
+use App\StructuredProduct;
 
 class PagesController extends Controller
 {
@@ -109,8 +112,9 @@ class PagesController extends Controller
      */
     public function research()
     {
-        $landing = Landing::find(1);
-        return view('research', ['landing' => $landing]);
+        $research = Research::find(1);
+        $reports = Report::all();
+        return view('research', ['landing' => $landing, 'research' => $research]);
     }
 
     /**
@@ -120,8 +124,10 @@ class PagesController extends Controller
      */
     public function structured_products()
     {
-        $landing = Landing::find(1);
-        return view('structured_products', ['landing' => $landing]);
+        $structured = StructuredProduct::find(1);
+        $benefits = Benefit::all();
+
+        return view('structured_products', ['structured' => $structured, 'benefits' => $benefits]);
     }
 
     /**
