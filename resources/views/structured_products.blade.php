@@ -187,7 +187,7 @@
                     @if ($structured->features)
                     <h3 class="font-weight-bold mb-3 purple-text-default">Features</h3>
 
-                    <p class="">{!!$structured->side_text!!}</p>
+                    <p class="">{!!$structured->features!!}</p>
                     @endif
                 </div>
             </div>

@@ -39,6 +39,9 @@ Route::post('/admin/landing', 'AdminController@landingPost')->name('landingPost'
 
 Route::get('/admin/sliders', 'AdminController@sliders')->name('slider');
 Route::post('/admin/sliders', 'AdminController@slidersPost')->name('slidersPost');
+Route::post('/admin/sliders/edit/{id}', 'AdminController@slidersEditPost')->name('who');
+Route::get('/admin/sliders/delete/{id}', 'AdminController@slidersDelete')->name('who');
+
 
 Route::get('/admin/services', 'AdminController@service')->name('services');
 Route::post('/admin/services', 'AdminController@servicePost')->name('servicesPost');

@@ -194,7 +194,7 @@
                 </div>
 
                 <div class="col-md-6 offset-md-1 my-2 text-justify">
-                    <p class="">{!!$portfolio->sid_txt!!}
+                    <p class="">{!!$portfolio->side_text!!}
                     </p>
                 </div>
             </div>
@@ -271,7 +271,7 @@
 
             <div class="row py-5 justify-content-center text-center">
                 <div class="col-md-8 my-2">
-                    <p>{{$portfolio->footer_text}}</p>
+                    <p>{!!$portfolio->footer_text!!}</p>
                 </div>
             </div>
 
