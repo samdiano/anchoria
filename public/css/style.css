@@ -653,3 +653,8 @@ li.custom-list::before {
     font-weight: 100;
 }
 
+
+ul.pagination{
+    font-size: 12px;
+}
+

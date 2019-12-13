@@ -45,6 +45,9 @@ Route::get('/admin/sliders/delete/{id}', 'AdminController@slidersDelete')->name(
 
 Route::get('/admin/services', 'AdminController@service')->name('services');
 Route::post('/admin/services', 'AdminController@servicePost')->name('servicesPost');
+Route::post('/admin/services/edit/{id}', 'AdminController@serviceEditPost')->name('who');
+Route::get('/admin/services/delete/{id}', 'AdminController@serviceDelete')->name('who');
+
 
 Route::get('/admin/who', 'AdminController@who')->name('who');
 Route::post('/admin/who', 'AdminController@whoPost')->name('whoPost');

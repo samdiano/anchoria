@@ -87,6 +87,54 @@ class AdminController extends Controller
         $landing = Landing::find(1);
         return view('admin.landing.slider', ['landing' => $landing]);
     }
+
+    /**
+     * Update who Page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function slidersEditPost(Request $request, $id)
+    {
+        $validator = $this->validate($request, [
+            'main' => 'required',
+            'sub' => 'required',
+        ]);
+        $slider =  Slider::find($id);
+        $landing = Landing::find(1);
+
+        if ($request->hasFile('image')) {
+            $filename = $request->image->store('images', 'public');
+            $slider->image_path = $filename;
+        }
+        $slider->main = $request->main;
+        $slider->sub = $request->sub;
+        $slider->button_text = $request->button_text;
+        $slider->button_link = $request->button_link;
+
+        if ($slider->save()) {
+            return redirect('admin/landing')->with(['landing' => $landing, 'alert' => ' Slider updated succesfully']);
+        } else {
+            return redirect()->back()->withErrors($validator);
+        }
+    }
+
+    /**
+     * Update who Page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function slidersDelete(Request $request, $id)
+    {
+
+        $feature = Slider::find($id);
+
+        if ($feature->delete()) {
+            return redirect('admin/landing')->with(['alert' => ' Slider deleted succesfully']);
+        } else {
+            return redirect()->back()->withErrors($validator);
+        }
+    }
+
     /**
      * Update Landing Page
      *
@@ -126,6 +174,52 @@ class AdminController extends Controller
     {
         $landing = Landing::find(1);
         return view('admin.landing.service', ['landing' => $landing]);
+    }
+
+    /**
+     * Update who Page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function serviceEditPost(Request $request, $id)
+    {
+        $validator = $this->validate($request, [
+            'name' => 'required',
+            'sub' => 'required',
+        ]);
+        $service =  Service::find($id);
+        $landing = Landing::find(1);
+
+        if ($request->hasFile('image')) {
+            $filename = $request->image->store('images', 'public');
+            $service->image_path = $filename;
+        }
+        $service->name = $request->name;
+        $service->description = $request->sub;
+        $service->sub_text = $request->sub;
+
+        if ($service->save()) {
+            return redirect('admin/landing')->with(['landing' => $landing, 'alert' => ' Content updated succesfully']);
+        } else {
+            return redirect()->back()->withErrors($validator);
+        }
+    }
+
+    /**
+     * Update who Page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function serviceDelete(Request $request, $id)
+    {
+
+        $feature = Service::find($id);
+
+        if ($feature->delete()) {
+            return redirect('admin/landing')->with(['alert' => ' Service deleted succesfully']);
+        } else {
+            return redirect()->back()->withErrors($validator);
+        }
     }
     /**
      * Update service Page
