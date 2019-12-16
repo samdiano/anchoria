@@ -122,3 +122,6 @@ Route::get('/admin/mutual-funds', 'AdminController@mutualFund')->name('landing')
 Route::post('/admin/mutual-funds', 'AdminController@mutualFundPost')->name('landingPost');
 
 
+Route::get('/admin/subscribers','AdminController@subscribers')->name('subscribers');
+Route::get('export', 'AdminController@export');
+

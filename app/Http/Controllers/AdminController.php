@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Benefit;
 use App\BenefitLiquidity;
 use App\Contact;
+use App\Exports\SubscriberExport;
 use App\Faq;
 use Illuminate\Http\Request;
 use App\Landing;
@@ -21,7 +22,9 @@ use App\Report;
 use App\Research;
 use App\Service;
 use App\StructuredProduct;
+use App\Subscriber;
 use App\Who;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AdminController extends Controller
 {
@@ -1267,4 +1270,22 @@ class AdminController extends Controller
             return redirect()->back()->withErrors($validator);
         }
     }
+
+    public function export()
+    {
+        return Excel::download(new SubscriberExport, 'subscribers.csv');
+    }
+
+    /**
+     * Show the company's about page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function subscribers()
+    {
+        $subscriber = Subscriber::all();
+        return view('admin.subscribers.subscribers', ['subscriber' => $subscriber]);
+    }
+
+
 }
