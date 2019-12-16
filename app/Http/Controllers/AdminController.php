@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Benefit;
 use App\BenefitLiquidity;
+use App\Contact;
 use App\Faq;
 use Illuminate\Http\Request;
 use App\Landing;
@@ -13,6 +14,7 @@ use App\LeadershipPage;
 use App\MultiFamily;
 use App\Feature;
 use App\Liquidity;
+use App\MutualFundPage;
 use App\Portfolio;
 use App\PortfolioService;
 use App\Report;
@@ -1067,7 +1069,7 @@ class AdminController extends Controller
 
 
 
-        /**
+    /**
      * Update who Page
      *
      * @return \Illuminate\Contracts\Support\Renderable
@@ -1083,7 +1085,7 @@ class AdminController extends Controller
         $faq->question = $request->question;
         $faq->response = $request->response;
         $faq->ranking = $request->question;
-       
+
 
         if ($faq->save()) {
             return redirect('admin/faq')->with(['alert' => ' FAQ added succesfully']);
@@ -1107,7 +1109,7 @@ class AdminController extends Controller
 
         $faq->question = $request->question;
         $faq->response = $request->response;
-       
+
 
         if ($faq->save()) {
             return redirect('admin/faq')->with(['alert' => ' FAQ updated succesfully']);
@@ -1133,5 +1135,136 @@ class AdminController extends Controller
         }
     }
 
-    
+    /**
+     * Show the admin landing page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function contact()
+    {
+        $contact = Contact::find(1);
+        return view('admin.contact.contact', ['contact' => $contact]);
+    }
+    /**
+     * Update Landing Page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function contactPost(Request $request)
+    {
+        $validator = $this->validate($request, [
+            'main' => 'required',
+        ]);
+        $contact = Contact::find(1);
+
+        if ($request->hasFile('image')) {
+            $filename = $request->image->store('images', 'public');
+            $contact->banner = $filename;
+        }
+
+        $contact->main = $request->main;
+        $contact->address = $request->address;
+        $contact->phone = $request->phone;
+        $contact->phone_2 = $request->phone_2;
+        $contact->email = $request->email;
+        $contact->email_2 = $request->email_2;
+        $contact->email_3 = $request->email_3;
+
+        if ($contact->save()) {
+            return redirect('admin/contact')->with(['contact' => $contact, 'alert' => ' Content updated succesfully']);
+        } else {
+            return redirect()->back()->withErrors($validator);
+        }
+    }
+
+    /**
+     * Show the admin landing page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function mutualFund()
+    {
+        $mutual = MutualFundPage::find(1);
+        return view('admin.mutualFunds.page', ['contact' => $mutual]);
+    }
+    /**
+     * Update Landing Page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function mutualFundPost(Request $request)
+    {
+        $validator = $this->validate($request, [
+            'main' => 'required',
+        ]);
+        $contact = MutualFundPage::find(1);
+
+        if ($request->hasFile('image')) {
+            $filename = $request->image->store('images', 'public');
+            $contact->banner = $filename;
+        }
+
+
+        if ($request->hasFile('fixed_income_fund_image')) {
+            $filename = $request->fixed_income_fund_image->store('images', 'public');
+            $contact->fixed_income_fund_image = $filename;
+        }
+
+        if ($request->hasFile('equity_fund_image')) {
+            $filename = $request->equity_fund_image->store('images', 'public');
+            $contact->equity_fund_image = $filename;
+        }
+
+        if ($request->hasFile('money_market_fund_image')) {
+            $filename = $request->money_market_fund_image->store('images', 'public');
+            $contact->money_market_fund_image = $filename;
+        }
+
+        if ($request->hasFile('fixed_income_fund_document')) {
+            $filename = $request->fixed_income_fund_document->store('docs', 'public');
+            $contact->fixed_income_fund_document = $filename;
+        }
+
+        if ($request->hasFile('fixed_income_fund_document_faq')) {
+            $filename = $request->fixed_income_fund_document_faq->store('docs', 'public');
+            $contact->fixed_income_fund_document_faq = $filename;
+        }
+
+        if ($request->hasFile('equity_fund_document')) {
+            $filename = $request->equity_fund_document->store('docs', 'public');
+            $contact->equity_fund_document = $filename;
+        }
+
+        if ($request->hasFile('equity_fund_document_faq')) {
+            $filename = $request->equity_fund_document_faq->store('docs', 'public');
+            $contact->equity_fund_document_faq = $filename;
+        }
+
+        if ($request->hasFile('money_market_fund_document')) {
+            $filename = $request->money_market_fund_document->store('docs', 'public');
+            $contact->money_market_fund_document = $filename;
+        }
+
+        if ($request->hasFile('money_market_fund_document_faq')) {
+            $filename = $request->money_market_fund_document_faq->store('docs', 'public');
+            $contact->money_market_fund_document_faq = $filename;
+        }
+
+
+        $contact->main = $request->main;
+        $contact->sub = $request->sub;
+        $contact->email = $request->email;
+        $contact->acct_name = $request->acct_name;
+        $contact->acct_number = $request->acct_number;
+        $contact->bank = $request->bank;
+        $contact->fixed_income_fund = $request->fixed_income_fund;
+        $contact->equity_fund = $request->equity_fund;
+        $contact->money_market_fund = $request->money_market_fund;
+
+        if ($contact->save()) {
+            return redirect('admin/mutual-funds')->with(['mutual' => $contact, 'alert' => ' Content updated succesfully']);
+        } else {
+            return redirect()->back()->withErrors($validator);
+        }
+    }
 }

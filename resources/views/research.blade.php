@@ -48,60 +48,60 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
 
-                    
-                        <li class="nav-item px-md-2 my-2 my-md-0">
-                                <a class="nav-link bold" href="{{url('/')}}">Home</a>
-                            </li>
-        
-                            <li class="nav-item dropdown px-md-2 my-2 my-md-0">
-                                <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    About Us
-                                </a>
-                                <div class="dropdown-menu nav-dropdown-menu" aria-labelledby="aboutDropdown">
-                                    <a class="dropdown-item" href="{{url('who')}}">Who We Are</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="{{url('leadership') }}">Leadership</a>
-                                </div>
-                            </li>
-        
-                            <li class="nav-item dropdown px-md-2 my-2 my-md-0">
-                                <a class="nav-link dropdown-toggle" href="#" id="productDropdown" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Products & Services
-                                </a>
-                                <div class="dropdown-menu nav-dropdown-menu" aria-labelledby="productDropdown">
-                                    <a class="dropdown-item" href="{{url('multifamily')}}">Multi-Family Office</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="{{url('portfolio')}}">Portfolio Management</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="{{url('liquidity')}}">Liquidity Management</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="{{url('structured_products')}}">Structured Products</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="{{url('mutual_funds')}}">Mutual Funds</a>
-                                </div>
-                            </li>
-        
-                            <li class="nav-item px-md-2 my-2 my-md-0">
-                                <a class="nav-link bold" href="{{url('account_opening')}}">Open an account</a>
-                            </li>
-        
-                            <li class="nav-item px-md-2 my-2 my-md-0 active-now">
-                                <a class="nav-link bold" href="{{url('research')}}">Research</a>
-                            </li>
-        
-                            <li class="nav-item px-md-2 my-2 my-md-0 ">
-                                <a class="nav-link bold" href="{{url('faq')}}">FAQs</a>
-                            </li>
-        
-                            <li class="nav-item px-md-2 my-2 my-md-0">
-                                <a class="nav-link bold" href="{{url('contact_us')}}">Contact Us</a>
-                            </li>
-        
-                            <li class="nav-item px-md-2 my-2 my-md-0 active-link">
-                                <a class="nav-link bold" href="{{url('login')}}">Login</a>
-                            </li>
+
+                    <li class="nav-item px-md-2 my-2 my-md-0">
+                        <a class="nav-link bold" href="{{url('/')}}">Home</a>
+                    </li>
+
+                    <li class="nav-item dropdown px-md-2 my-2 my-md-0">
+                        <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            About Us
+                        </a>
+                        <div class="dropdown-menu nav-dropdown-menu" aria-labelledby="aboutDropdown">
+                            <a class="dropdown-item" href="{{url('who')}}">Who We Are</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{url('leadership') }}">Leadership</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown px-md-2 my-2 my-md-0">
+                        <a class="nav-link dropdown-toggle" href="#" id="productDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Products & Services
+                        </a>
+                        <div class="dropdown-menu nav-dropdown-menu" aria-labelledby="productDropdown">
+                            <a class="dropdown-item" href="{{url('multifamily')}}">Multi-Family Office</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{url('portfolio')}}">Portfolio Management</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{url('liquidity')}}">Liquidity Management</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{url('structured_products')}}">Structured Products</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{url('mutual_funds')}}">Mutual Funds</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item px-md-2 my-2 my-md-0">
+                        <a class="nav-link bold" href="{{url('account_opening')}}">Open an account</a>
+                    </li>
+
+                    <li class="nav-item px-md-2 my-2 my-md-0 active-now">
+                        <a class="nav-link bold" href="{{url('research')}}">Research</a>
+                    </li>
+
+                    <li class="nav-item px-md-2 my-2 my-md-0 ">
+                        <a class="nav-link bold" href="{{url('faq')}}">FAQs</a>
+                    </li>
+
+                    <li class="nav-item px-md-2 my-2 my-md-0">
+                        <a class="nav-link bold" href="{{url('contact_us')}}">Contact Us</a>
+                    </li>
+
+                    <li class="nav-item px-md-2 my-2 my-md-0 active-link">
+                        <a class="nav-link bold" href="{{url('login')}}">Login</a>
+                    </li>
 
                     <li class="nav-item pl-md-3 pr-md-5 my-2 my-md-0">
                         <a class="nav-link bold" href="javascript.void()" data-toggle="modal"
@@ -119,7 +119,8 @@
         <div class="container">
             <div class="row justify-content-center pb-4 pt-5">
                 <div class="col-md-6">
-                    <h2 class="text-white gotham-bold font-weight-bld text-center mt-5 pt-5 mb-4 font-40">{{$research->main}}</h2>
+                    <h2 class="text-white gotham-bold font-weight-bld text-center mt-5 pt-5 mb-4 font-40">
+                        {{$research->main}}</h2>
                     <p class="font-weight-light text-white text-center font-17">{{$research->sub}}</p>
                 </div>
             </div>
@@ -256,7 +257,8 @@
         </div>
     </div>
 
-    <div class="section-4-home" style="margin-top: 20%">
+    @include('partial.alert')
+    <div class="section-4-home mt-5">
         <div class="container">
 
             <div class="row ">
@@ -266,20 +268,26 @@
                         and market data straight to your mail box.</p>
                 </div>
 
-                <div class="col-md-6 offset-md-1 my-5">
-                    <div class="input-group mt-4">
-                        <input type="text" class="form-control bg-white border-right">
+                <div class="col-md-6 offset-md-1 my-md-5 mb-5">
+                    <form action="{{url('/subscribe')}}" method="post">
+                        {{ csrf_field() }}
+                        <div class="input-group mt-4">
+                            <input type="email" name="email" class="form-control bg-white border-right">
 
-                        <div class="input-group-append">
-                            <span class="input-group-text" id="basic-addon2">Subscribe</span>
+                            <div class="input-group-append">
+                                <button>
+                                    <span class="input-group-text" id="basic-addon2"> Subscribe</span>
+                                </button>
+                            </div>
+
                         </div>
-
-                    </div>
+                    </form>
                 </div>
 
             </div>
         </div>
     </div>
+
 
     <!--Footer-->
     <footer class="pt-2 font-small landing_footer">

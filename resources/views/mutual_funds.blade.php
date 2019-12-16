@@ -227,7 +227,7 @@
                             aria-labelledby="if-tab-just">
                             <div class="row">
                                 <div class="col-md-6 my-2">
-                                    <img src="img/mutual_img_1.jpg" alt="Anchoria Fixed Income Fund"
+                                    <img src="{!!$mutual->fixed_income_fund_image!!}" alt="Anchoria Fixed Income Fund"
                                         class="img-fluid" />
                                 </div>
 
@@ -238,12 +238,7 @@
                                         term goals</h6>
 
 
-                                    <p class="font-16 text-grey mb-4">The investment objective of the Fixed Income Fund
-                                        is capital preservation while achieving competitive yields from a diversified
-                                        and low risk portfolio consisting of a mix of Federal Government bonds, State
-                                        Government bonds, Corporate bonds, Eurobonds, and money market instruments. This
-                                        fund is suited to investors with a low risk appetite, looking to invest in the
-                                        medium to long term.
+                                    <p class="font-16 text-grey mb-4">{!!$mutual->fixed_income_fund!!}
                                     </p>
 
                                     <h6 class="font-weight-600 text-uppercase text-grey mb-4">Fix your future today by
@@ -252,8 +247,8 @@
                                     <ul class="ml-md-4">
                                         <li class="mb-4 text-grey font-16">a) To subscribe, <span
                                                 class="text-red font-weight-bold"> <a class="text-red" target="_blank"
-                                                    href="uploads/Anchoria%20Fixed%20Income%20Fund%20-%20%20Abridged%20Prospectus.pdf"
-                                                    download>download form</a></span> and fill.</li>
+                                                    href="{{$mutual->fixed_income_fund_document}}" download>download
+                                                    form</a></span> and fill.</li>
 
                                         <li class="mb-4 text-grey font-16">b) Transfer fund to;</li>
 
@@ -261,23 +256,22 @@
 
                                     <div class="anchoria-detail-card p-4 my-3">
                                         <p class="mb-2 text-grey font-16">Account Name: <span
-                                                class="purple-text-default">UBA Nom - United Capital Trustees/Anchoria
-                                                Fixed Income Fund</span></p>
+                                                class="purple-text-default">{{$mutual->acct_name}}</span></p>
                                         <p class="mb-2 text-grey font-16">Account Number: <span
-                                                class="purple-text-default">1022033148</span></p>
+                                                class="purple-text-default">{{$mutual->acct_number}}</span></p>
                                         <p class="mb-2 text-grey font-16">Bank: <span
-                                                class="purple-text-default">UBA</span></p>
+                                                class="purple-text-default">{{$mutual->bank}}</span></p>
                                     </div>
 
                                     <ul class="ml-md-4">
                                         <li class="mb-4 text-grey font-16">c) Upload filled form with proof of payment
                                             to <span class="text-red font-weight-bold"><a class="text-red"
-                                                    href="mailto:mutualfunds@anchoriaam.com">mutualfunds@anchoriaam.com</a></span>
+                                                    href="mailto:{{$mutual->email}}">{{$mutual->email}}</a></span>
                                         </li>
                                     </ul>
 
                                     <a class="btn mutual-page-btn mt-md-3 text-red" target="_blank"
-                                        href="uploads/Anchoria%20Fixed%20Income%20Fund%20FAQs.pdf" download>View Fixed
+                                        href="{{$mutual->fixed_income_fund_document_faq}}" download>View Fixed
                                         Income Funds FAQs</a>
                                 </div>
                             </div>
@@ -287,7 +281,7 @@
 
                             <div class="row">
                                 <div class="col-md-6 my-2">
-                                    <img src="img/mutual_img_2.jpg" alt="Anchoria Fixed Income Fund"
+                                    <img src="{!!$mutual->equity_fund_image!!}" alt="Anchoria Fixed Income Fund"
                                         class="img-fluid" />
                                 </div>
 
@@ -297,13 +291,7 @@
                                     </h6>
 
 
-                                    <p class="font-16 text-grey mb-4">The investment objective of the equity fund is to
-                                        generate income and capital growth from investments in a diversified portfolio.
-                                        The fund will seek to maximize long term income and capital appreciation by
-                                        investing in a range of stocks listed on the Nigerian Stock Exchange. We seek to
-                                        attain this objective within an acceptable level of investment risk and aim to
-                                        consistently outperform the index that measures aggregate performance of the top
-                                        30 stocks in Nigeria
+                                    <p class="font-16 text-grey mb-4">{!!$mutual->equity_fund!!}
                                     </p>
 
                                     <h6 class="font-weight-600 text-uppercase text-grey mb-4">Fix your future today by
@@ -313,8 +301,8 @@
                                     <ul class="ml-md-4">
                                         <li class="mb-4 text-grey font-16">a) To subscribe, <a
                                                 class="text-red font-weight-bold" target="_blank"
-                                                href="uploads/Anchoria%20Equity%20Fund%20%20-%20Abridged%20Prospectus.pdf"
-                                                download>download form</a> and fill.</li>
+                                                href="{!!$mutual->equity_fund_document!!}" download>download form</a>
+                                            and fill.</li>
 
                                         <li class="mb-4 text-grey font-16">b) Transfer fund to;</li>
 
@@ -322,23 +310,22 @@
 
                                     <div class="anchoria-detail-card p-4 my-3">
                                         <p class="mb-2 text-grey font-16">Account Name: <span
-                                                class="purple-text-default">UBA Nom - United Capital Trustees/Anchoria
-                                                Equity Fund</span></p>
+                                                class="purple-text-default">{{$mutual->acct_name}}</span></p>
                                         <p class="mb-2 text-grey font-16">Account Number: <span
-                                                class="purple-text-default">1022033155</span></p>
+                                                class="purple-text-default">{{$mutual->acct_number}}</span></p>
                                         <p class="mb-2 text-grey font-16">Bank: <span
-                                                class="purple-text-default">UBA</span></p>
+                                                class="purple-text-default">{{$mutual->bank}}</span></p>
                                     </div>
 
                                     <ul class="ml-md-4">
                                         <li class="mb-4 text-grey font-16">c) Upload filled form with proof of payment
-                                            to <a class="text-red font-weight-bold"
-                                                href="mailto:mutualfunds@anchoriaam.com">mutualfunds@anchoriaam.com</a>
+                                            to <span class="text-red font-weight-bold"><a class="text-red"
+                                                    href="mailto:{{$mutual->email}}">{{$mutual->email}}</a></span>
                                         </li>
                                     </ul>
 
                                     <a class="btn mutual-page-btn mt-md-3" target="_blank"
-                                        href="uploads/Anchoria%20Equity%20Fund%20FAQs.pdf" download>View Equity Funds
+                                        href="{!!$mutual->equity_fund_document_faq!!}" download>View Equity Funds
                                         FAQs</a>
                                 </div>
                             </div>
@@ -348,7 +335,7 @@
 
                             <div class="row">
                                 <div class="col-md-6 my-2">
-                                    <img src="img/mutual_img_3.jpg" alt="Anchoria Fixed Income Fund"
+                                    <img src="{!!$mutual->money_market_fund_image!!}" alt="Anchoria Fixed Income Fund"
                                         class="img-fluid" />
                                 </div>
 
@@ -358,13 +345,7 @@
                                     <h6 class="font-weight-600 text-uppercase text-grey">Achieving your Short term goals
                                     </h6>
 
-                                    <p class="font-16 text-grey mb-4">The investment objective of the Money Market Fund
-                                        is to preserve capital while achieving competitive yields on the pool of funds
-                                        from a diversified and low risk portfolio of money market and short-term fixed
-                                        interest securities while remaining liquid for ease of entry and exit for
-                                        investors. This objective is attained by using economies of scale to obtain
-                                        better returns on investments while investing in short term instruments with
-                                        high credit ratings, thus ensuring security, liquidity and positive returns.
+                                    <p class="font-16 text-grey mb-4">{!!$mutual->money_market_fund!!}
                                     </p>
 
                                     <h6 class="font-weight-600 text-uppercase text-grey mb-4">Fix your future today!
@@ -374,8 +355,8 @@
                                     <ul class="ml-md-4">
                                         <li class="mb-4 text-grey font-16">a) To subscribe, <a
                                                 class="text-red font-weight-bold" target="_blank"
-                                                href="uploads/Anchoria%20Money%20Market%20Fund%20-%20%20Abridged%20Prospectus.pdf"
-                                                download>download form</a> and fill.</li>
+                                                href="{!!$mutual->money_market_fund_document!!}" download>download
+                                                form</a> and fill.</li>
 
                                         <li class="mb-4 text-grey font-16">b) Transfer fund to;</li>
 
@@ -383,23 +364,22 @@
 
                                     <div class="anchoria-detail-card p-4 my-3">
                                         <p class="mb-2 text-grey font-16">Account Name: <span
-                                                class="purple-text-default">UBA Nom - FBN Quest Trustees/Anchoria Money
-                                                Market Fund</span></p>
+                                                class="purple-text-default">{{$mutual->acct_name}}</span></p>
                                         <p class="mb-2 text-grey font-16">Account Number: <span
-                                                class="purple-text-default">1022033131</span></p>
+                                                class="purple-text-default">{{$mutual->acct_number}}</span></p>
                                         <p class="mb-2 text-grey font-16">Bank: <span
-                                                class="purple-text-default">UBA</span></p>
+                                                class="purple-text-default">{{$mutual->bank}}</span></p>
                                     </div>
 
                                     <ul class="ml-md-4">
                                         <li class="mb-4 text-grey font-16">c) Upload filled form with proof of payment
-                                            to <a class="text-red font-weight-bold"
-                                                href="mailto:mutualfunds@anchoriaam.com">mutualfunds@anchoriaam.com</a>
+                                            to <span class="text-red font-weight-bold"><a class="text-red"
+                                                    href="mailto:{{$mutual->email}}">{{$mutual->email}}</a></span>
                                         </li>
                                     </ul>
 
                                     <a class="btn mutual-page-btn mt-md-3" target="_blank"
-                                        href="uploads/Anchoria%20Money%20Market%20Fund%20FAQs.pdf" download>View Money
+                                        href="{!!$mutual->money_market_fund_document!!}" download>View Money
                                         Market Funds FAQs</a>
                                 </div>
                             </div>
@@ -454,6 +434,7 @@
         </div>
     </div>
 
+    @include('partial.alert')
     <div class="section-4-home mt-5">
         <div class="container">
 
@@ -465,14 +446,19 @@
                 </div>
 
                 <div class="col-md-6 offset-md-1 my-md-5 mb-5">
-                    <div class="input-group mt-4">
-                        <input type="text" class="form-control bg-white border-right">
+                    <form action="{{url('/subscribe')}}" method="post">
+                        {{ csrf_field() }}
+                        <div class="input-group mt-4">
+                            <input type="email" name="email" class="form-control bg-white border-right">
 
-                        <div class="input-group-append">
-                            <span class="input-group-text" id="basic-addon2">Subscribe</span>
+                            <div class="input-group-append">
+                                <button>
+                                    <span class="input-group-text" id="basic-addon2"> Subscribe</span>
+                                </button>
+                            </div>
+
                         </div>
-
-                    </div>
+                    </form>
                 </div>
 
             </div>

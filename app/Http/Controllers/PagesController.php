@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Benefit;
 use App\BenefitLiquidity;
+use App\Contact;
 use App\Faq;
 use App\Feature;
 use Illuminate\Http\Request;
@@ -15,11 +16,13 @@ use App\Leadership;
 use App\LeadershipPage;
 use App\Liquidity;
 use App\MultiFamily;
+use App\MutualFundPage;
 use App\Portfolio;
 use App\PortfolioService;
 use App\Report;
 use App\Research;
 use App\StructuredProduct;
+use App\Subscriber;
 
 class PagesController extends Controller
 {
@@ -33,7 +36,7 @@ class PagesController extends Controller
         $landing = Landing::find(1);
         $sliders = Slider::all();
         $services = Service::all();
-        return view('index', ['landing' => $landing,'sliders' => $sliders,'services' => $services]);
+        return view('index', ['landing' => $landing, 'sliders' => $sliders, 'services' => $services]);
     }
 
     /**
@@ -91,8 +94,8 @@ class PagesController extends Controller
      */
     public function mutual_funds()
     {
-        $landing = Landing::find(1);
-        return view('mutual_funds', ['landing' => $landing]);
+        $mutual = MutualFundPage::find(1);
+        return view('mutual_funds', ['mutual' => $mutual]);
     }
 
     /**
@@ -161,8 +164,19 @@ class PagesController extends Controller
      */
     public function contact_us()
     {
-        $landing = Landing::find(1);
-        return view('contact_us', ['landing' => $landing]);
+        $contact = Contact::find(1);
+        return view('contact_us', ['contact' => $contact]);
     }
 
+    public function subscribe(Request $request)
+    {
+
+        $validator = $this->validate($request, [
+            'email' => 'required',
+        ]);
+        $subscriber = Subscriber::firstOrNew(['email' => $request->email]);
+        $subscriber->email = $request->email;
+        $subscriber->save();
+        return redirect()->back()->with(['contact' => $subscriber, 'alert' => '  You have successfully subscribed to our Newsletter']);
+    }
 }

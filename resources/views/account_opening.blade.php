@@ -272,30 +272,36 @@
         </div>
 
 
-        <div class="section-4-home">
-            <div class="container">
+        @include('partial.alert')
+    <div class="section-4-home mt-5">
+        <div class="container">
 
-                <div class="row ">
-                    <div class="col-md-4 my-5">
-                        <p class="font-weight-bold text-uppercase text-white">Join our Newsletter</p>
-                        <p class="text-white font-weight-light">Subscribe to our mailing list to receive regular economic and market data straight to your mail box.</p>
-                    </div>
+            <div class="row ">
+                <div class="col-md-4 my-5">
+                    <p class="font-weight-bold text-uppercase text-white">Join our Newsletter</p>
+                    <p class="text-white font-weight-light">Subscribe to our mailing list to receive regular economic
+                        and market data straight to your mail box.</p>
+                </div>
 
-                    <div class="col-md-6 offset-md-1 my-5">
+                <div class="col-md-6 offset-md-1 my-md-5 mb-5">
+                    <form action="{{url('/subscribe')}}" method="post">
+                        {{ csrf_field() }}
                         <div class="input-group mt-4">
-                            <input type="text" class="form-control bg-white border-right">
+                            <input type="email" name="email" class="form-control bg-white border-right">
 
                             <div class="input-group-append">
-                                <span class="input-group-text" id="basic-addon2">Subscribe</span>
+                                <button>
+                                    <span class="input-group-text" id="basic-addon2"> Subscribe</span>
+                                </button>
                             </div>
 
                         </div>
-                    </div>
-
+                    </form>
                 </div>
+
             </div>
         </div>
-
+    </div>
 
         <!--Footer-->
         <footer class="pt-2 font-small landing_footer">

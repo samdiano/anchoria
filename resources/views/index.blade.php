@@ -127,7 +127,8 @@
 
                     <div class="row justify-content-center pb-4 pt-5">
                         <div class="col-md-6 text-center">
-                            <h3 class="text-white gotham-bold font-weight-bld text-center mt-5 pt-5 mb-4">{!!$slider->main!!} </h3>
+                            <h3 class="text-white gotham-bold font-weight-bld text-center mt-5 pt-5 mb-4">
+                                {!!$slider->main!!} </h3>
                             <p class="text-white text-center">
                                 {!!$slider->sub!!}</p>
 
@@ -138,7 +139,7 @@
                 </div>
                 @endforeach
 
-{{-- 
+                {{-- 
                 <!--					slide 2-->
                 <div class="height_normalize height_320px" style="background: linear-gradient(rgba(0, 0, 0, 0.58), rgba(9, 8, 8, 0.51)), rgba(0, 0, 0, 0.55) url(img/website_assets/HomePage/Sliders/wealth_management.jpg);
                                                                       background-position: center;
@@ -359,7 +360,7 @@
             </div>
             @endforeach
         </div>
-{{-- 
+        {{-- 
         <div class="row text-justify">
             <div class="col-md-3 my-3">
                 <div>
@@ -396,7 +397,8 @@
 
     </div>
 
-    <div class="section-4-home" id="subscribe">
+    @include('partial.alert')
+    <div class="section-4-home mt-5">
         <div class="container">
 
             <div class="row ">
@@ -407,19 +409,25 @@
                 </div>
 
                 <div class="col-md-6 offset-md-1 my-md-5 mb-5">
-                    <div class="input-group mt-4">
-                        <input type="text" class="form-control bg-white border-right">
+                    <form action="{{url('/subscribe')}}" method="post">
+                        {{ csrf_field() }}
+                        <div class="input-group mt-4">
+                            <input type="email" name="email" class="form-control bg-white border-right">
 
-                        <div class="input-group-append">
-                            <span class="input-group-text" id="basic-addon2">Subscribe</span>
+                            <div class="input-group-append">
+                                <button>
+                                    <span class="input-group-text" id="basic-addon2"> Subscribe</span>
+                                </button>
+                            </div>
+
                         </div>
-
-                    </div>
+                    </form>
                 </div>
 
             </div>
         </div>
     </div>
+
 
     <!--Footer-->
     <footer class="pt-2 font-small landing_footer">

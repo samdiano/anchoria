@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use Illuminate\Http\Request;
+use App\Mail\ContactMail;
+use Illuminate\Support\Facades\Mail;
 
 Route::get('/', 'PagesController@index')->name('welcome');
 Route::get('/who', 'PagesController@who')->name('who');
@@ -23,6 +26,7 @@ Route::get('/multifamily', 'PagesController@multifamily')->name('multifamily');
 Route::get('/mutual_funds', 'PagesController@mutual_funds')->name('mutual_funds');
 Route::get('/portfolio', 'PagesController@portfolio')->name('portfolio');
 Route::get('/structured_products', 'PagesController@structured_products')->name('structured_products');
+Route::post('/subscribe', 'PagesController@subscribe')->name('structured_products');
 Auth::routes();
 
 
@@ -103,3 +107,18 @@ Route::get('/admin/faq', 'AdminController@faq')->name('who');
 Route::post('/admin/faq/add', 'AdminController@faqAddPost')->name('who');
 Route::post('/admin/faq/edit/{id}', 'AdminController@faqEditPost')->name('who');
 Route::get('/admin/faq/delete/{id}', 'AdminController@faqDelete')->name('who');
+
+Route::get('/admin/contact', 'AdminController@contact')->name('landing');
+Route::post('/admin/contact', 'AdminController@contactPost')->name('landingPost');
+
+
+
+Route::post('/contact_us', function (Request $request) {
+  Mail::send(new ContactMail($request));
+  return redirect()->back()->with(['alert' => ' message sent']);
+});
+
+Route::get('/admin/mutual-funds', 'AdminController@mutualFund')->name('landing');
+Route::post('/admin/mutual-funds', 'AdminController@mutualFundPost')->name('landingPost');
+
+

@@ -194,30 +194,33 @@
                                 <hr />
                             </div>
                         </div>
+                        @include('partial.alert')
 
                         <div class="row">
+
                             <div class="col-md-6">
-                                <form class="px-5 pb-5">
+                                <form class="px-5 pb-5" method="post" action="{{url('contact_us')}}">
+                                        {{csrf_field()}}
                                     <div class="form-group">
                                         <label for="name" class="active">Name</label>
-                                        <input type="text" class="form-control border rounded" id="name" placeholder="">
+                                        <input type="text" class="form-control border rounded" id="name" name="name" placeholder="">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="email">Email address</label>
-                                        <input type="email" class="form-control border rounded" id="email"
+                                        <input type="email" class="form-control border rounded" id="email" name="email"
                                             placeholder="">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="phone">Phone Number</label>
-                                        <input type="text" class="form-control border rounded" id="phone"
+                                        <input type="text" class="form-control border rounded" id="phone" name="phone"
                                             placeholder="">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="message">Message</label>
-                                        <textarea class="form-control text-area" id="message" rows="3"
+                                        <textarea class="form-control text-area" id="message" rows="3" name="message"
                                             style=""></textarea>
                                     </div>
 
@@ -233,37 +236,31 @@
                                     <p class="text_secondary mt-5 mt-md-0">You can visit our Office</p>
                                     <ul class="list-unstyled mb-1">
                                         <li class="text_primary"><img src="img/location.svg" class="img-fluid mr-1"
-                                                width="12">5th Floor, Elephant House,<br>
-
-                                            214 Broad Street, Marina,<br>
-
-                                            Lagos Island, Lagos.</li>
-                                    </ul>
+                                                width="12">{!!$contact->address!!}</li>
 
                                     <ul class="list-unstyled">
                                         <li class="text_primary mb-3"><a href="tel:+2348188899455"><img
-                                                    src="img/call.svg" class="img-fluid mr-1" width="12">+234 818 889
-                                                9455</a></li>
+                                                    src="img/call.svg" class="img-fluid mr-1" width="12">{{$contact->phone}}</a></li>
 
                                         <li class="text_primary"><a href="tel:+234 9087284135"><img src="img/call.svg"
-                                                    class="img-fluid mr-1" width="12">+234 908 728 4135</a></li>
+                                                    class="img-fluid mr-1" width="12">{{$contact->phone_2}}</a></li>
                                     </ul>
 
                                     <ul class="list-unstyled">
-                                        <li class="text_primary mb-3"><a href="mailto:info@anchoriaam.com"><img
+                                        <li class="text_primary mb-3"><a href="mailto:{{$contact->email}}"><img
                                                     src="img/mail.svg" class="img-fluid mr-1"
-                                                    width="12">info@anchoriaam.com</a></li>
+                                                    width="12">{{$contact->email}}</a></li>
 
 
-                                        <li class="text_primary mb-3"><a href="mailto:mutualfunds@anchoriaam.com"><img
+                                        <li class="text_primary mb-3"><a href="mailto:{{$contact->email_2}}"><img
                                                     src="img/mail.svg" class="img-fluid mr-1"
-                                                    width="12">mutualfunds@anchoriaam.com</a></li>
+                                                    width="12">{{$contact->email_2}}</a></li>
 
 
                                         <li class="text_primary mb-3"><a
-                                                href="mailto:clientExperience@anchoriaam.com"><img src="img/mail.svg"
+                                                href="mailto:{{$contact->email_3}}"><img src="img/mail.svg"
                                                     class="img-fluid mr-1"
-                                                    width="12">clientExperience@anchoriaam.com</a></li>
+                                                    width="12">{{$contact->email_3}}</a></li>
 
                                     </ul>
                                 </div>

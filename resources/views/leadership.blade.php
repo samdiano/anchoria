@@ -34,10 +34,9 @@
 			<!-- Navbar brand -->
 
 			<a class="navbar-brand" href="index.html">
-				<img src="img/subs-white-Anchoria.png" width="160" class="img-fluid d-none d-md-block d-lg-block"
-					id="main_logo" alt="VFD Group Logo">
-				<img src="img/aamblacklogo.png" width="160" class="img-fluid d-lg-none" id="main_logo"
+				<img src="img/subs-white-Anchoria.png" width="160" class="img-fluid d-none d-md-block d-lg-block" id="main_logo"
 					alt="VFD Group Logo">
+				<img src="img/aamblacklogo.png" width="160" class="img-fluid d-lg-none" id="main_logo" alt="VFD Group Logo">
 			</a>
 
 			<!-- Collapse button -->
@@ -55,8 +54,8 @@
 					</li>
 
 					<li class="nav-item dropdown px-md-2 my-2 my-md-0 active-now">
-						<a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button"
-							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-toggle="dropdown"
+							aria-haspopup="true" aria-expanded="false">
 							About Us
 						</a>
 						<div class="dropdown-menu nav-dropdown-menu" aria-labelledby="aboutDropdown">
@@ -67,8 +66,8 @@
 					</li>
 
 					<li class="nav-item dropdown px-md-2 my-2 my-md-0">
-						<a class="nav-link dropdown-toggle" href="#" id="productDropdown" role="button"
-							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<a class="nav-link dropdown-toggle" href="#" id="productDropdown" role="button" data-toggle="dropdown"
+							aria-haspopup="true" aria-expanded="false">
 							Products & Services
 						</a>
 						<div class="dropdown-menu nav-dropdown-menu" aria-labelledby="productDropdown">
@@ -148,8 +147,8 @@
 								<div class="">
 									<p class="text-white mb-0 text-center"><span
 											class="font-weight-bold text-purple-light text-uppercase">AFIF</span></p>
-									<p class="text-white mb-0 text-center"><span
-											class="text-purple-light text-uppercase">BID / Offer</span></p>
+									<p class="text-white mb-0 text-center"><span class="text-purple-light text-uppercase">BID /
+											Offer</span></p>
 									<p class="text-white mb-0 text-center">5.2 / 0.5</p>
 								</div>
 
@@ -160,8 +159,8 @@
 								<div class="">
 									<p class="text-white mb-0 text-center"><span
 											class="font-weight-bold text-purple-light text-uppercase">AEF</span></p>
-									<p class="text-white mb-0 text-center"><span
-											class="text-purple-light text-uppercase">BID / Offer</span></p>
+									<p class="text-white mb-0 text-center"><span class="text-purple-light text-uppercase">BID /
+											Offer</span></p>
 									<p class="text-white mb-0 text-center">0.9 / 1.5</p>
 								</div>
 								<hr class="bg-default-purple my-2" />
@@ -171,8 +170,8 @@
 								<div class="">
 									<p class="text-white mb-0 text-center"><span
 											class="font-weight-bold text-purple-light text-uppercase">AMMF</span></p>
-									<p class="text-white mb-0 text-center"><span
-											class="text-purple-light text-uppercase">BID / Offer</span></p>
+									<p class="text-white mb-0 text-center"><span class="text-purple-light text-uppercase">BID /
+											Offer</span></p>
 									<p class="text-white mb-0 text-center">5.2 / 0.9</p>
 								</div>
 							</div>
@@ -191,14 +190,14 @@
 
 	<!--        floating purple section-->
 	<div class="purple-card-section-desktop px-1 py-2 side-option d-none d-md-block d-lg-block">
-		<p class="text-white text-center mb-0">Mutual Funds <span
-				class="font-weight-bold text-purple-light">Anchoria</span></p>
+		<p class="text-white text-center mb-0">Mutual Funds <span class="font-weight-bold text-purple-light">Anchoria</span>
+		</p>
 		<p class="text-purple-light-2 text-center mb-0 small">4/9/2019</p>
 		<hr class="bg-default-purple my-2" />
 
 		<div class="">
-			<p class="text-white mb-0 text-center"><span
-					class="font-weight-bold text-purple-light text-uppercase">AFIF</span></p>
+			<p class="text-white mb-0 text-center"><span class="font-weight-bold text-purple-light text-uppercase">AFIF</span>
+			</p>
 			<p class="text-white mb-0 text-center"><span class="text-purple-light text-uppercase">BID / Offer</span></p>
 			<p class="text-white mb-0 text-center">5.2 / 0.5</p>
 		</div>
@@ -207,8 +206,8 @@
 
 
 		<div class="">
-			<p class="text-white mb-0 text-center"><span
-					class="font-weight-bold text-purple-light text-uppercase">AEF</span></p>
+			<p class="text-white mb-0 text-center"><span class="font-weight-bold text-purple-light text-uppercase">AEF</span>
+			</p>
 			<p class="text-white mb-0 text-center"><span class="text-purple-light text-uppercase">BID / Offer</span></p>
 			<p class="text-white mb-0 text-center">0.9 / 1.5</p>
 		</div>
@@ -217,8 +216,8 @@
 
 
 		<div class="">
-			<p class="text-white mb-0 text-center"><span
-					class="font-weight-bold text-purple-light text-uppercase">AMMF</span></p>
+			<p class="text-white mb-0 text-center"><span class="font-weight-bold text-purple-light text-uppercase">AMMF</span>
+			</p>
 			<p class="text-white mb-0 text-center"><span class="text-purple-light text-uppercase">BID / Offer</span></p>
 			<p class="text-white mb-0 text-center">5.2 / 0.9</p>
 		</div>
@@ -230,8 +229,7 @@
 			<div class="col-md-6 py-3">
 				<div class="row">
 					<div class="col-md-6" data-toggle="modal" data-target="#{{$leader->name}}">
-						<div class="hover-cursor leadership_shot"
-							style="background-image: url({{$leader->image_path}});">
+						<div class="hover-cursor leadership_shot" style="background-image: url({{$leader->image_path}});">
 						</div>
 					</div>
 
@@ -373,7 +371,8 @@
 
 	</div>
 
-	<div class="section-4-home">
+	@include('partial.alert')
+	<div class="section-4-home mt-5">
 		<div class="container">
 
 			<div class="row ">
@@ -384,14 +383,19 @@
 				</div>
 
 				<div class="col-md-6 offset-md-1 my-md-5 mb-5">
-					<div class="input-group mt-4">
-						<input type="text" class="form-control bg-white border-right">
+					<form action="{{url('/subscribe')}}" method="post">
+						{{ csrf_field() }}
+						<div class="input-group mt-4">
+							<input type="email" name="email" class="form-control bg-white border-right">
 
-						<div class="input-group-append">
-							<span class="input-group-text" id="basic-addon2">Subscribe</span>
+							<div class="input-group-append">
+								<button>
+									<span class="input-group-text" id="basic-addon2"> Subscribe</span>
+								</button>
+							</div>
+
 						</div>
-
-					</div>
+					</form>
 				</div>
 
 			</div>
@@ -410,8 +414,8 @@
 						<p class="text-center text-md-left text-dark my-3 spacing-2 font-weight-bold"> Contact Us</p>
 
 						<ul class="list-unstyled">
-							<li class="text_primary"><a href="tel:+2348188899455"><img src="img/call.svg"
-										class="img-fluid mr-1" width="12"> +234 818 889 9455</a></li>
+							<li class="text_primary"><a href="tel:+2348188899455"><img src="img/call.svg" class="img-fluid mr-1"
+										width="12"> +234 818 889 9455</a></li>
 						</ul>
 
 						<ul class="list-unstyled">
@@ -441,8 +445,8 @@
 							</li>
 							<li class="text_primary mb-2"><a href="account_opening.html" class="">Open An Account</a>
 							</li>
-							<li class="text_primary mb-2"><a href="uploads/Anchoria%20Corporate%20Profile.pdf"
-									class="">Corporate Information</a></li>
+							<li class="text_primary mb-2"><a href="uploads/Anchoria%20Corporate%20Profile.pdf" class="">Corporate
+									Information</a></li>
 							<li class="text_primary mb-2"><a href="mutual_funds.html" class="">Mutual Funds</a></li>
 
 						</ul>
@@ -485,8 +489,7 @@
 	<!--/.Footer-->
 
 
-	<div class="modal fade" id="adenubi" tabindex="-1" role="dialog" aria-labelledby="exec_infoLabel"
-		aria-hidden="true">
+	<div class="modal fade" id="adenubi" tabindex="-1" role="dialog" aria-labelledby="exec_infoLabel" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered leadership_modal" role="document">
 			<div class="modal-content">
 				<div class="modal-header border-0 pb-0">
@@ -539,8 +542,7 @@
 							</p>
 
 							<ul class="list-inline mt-2">
-								<li class="list-inline-item"><a
-										href="https://www.linkedin.com/in/niyi-adenubi-b6404311b/"><img
+								<li class="list-inline-item"><a href="https://www.linkedin.com/in/niyi-adenubi-b6404311b/"><img
 											src="img/social_icons/linkedin.png" class="img-fluid" /></a></li>
 							</ul>
 						</div>
@@ -554,7 +556,8 @@
 	</div>
 
 	@foreach ($leaders as $leader)
-	<div class="modal fade" id="{{$leader->name}}" tabindex="-1" role="dialog" aria-labelledby="exec_infoLabel" aria-hidden="true">
+	<div class="modal fade" id="{{$leader->name}}" tabindex="-1" role="dialog" aria-labelledby="exec_infoLabel"
+		aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered leadership_modal" role="document">
 			<div class="modal-content">
 				<div class="modal-header border-0 pb-0">
@@ -585,14 +588,13 @@
 							<p class="font-13">{!!$leader->description!!}
 							</p>
 
-							
+
 
 							@if ($leader->linkedin)
-								
+
 							<ul class="list-inline mt-2">
-								<li class="list-inline-item"><a
-										href="{{$leader->linkedin}}"><img
-											src="img/social_icons/linkedin.png" class="img-fluid" /></a></li>
+								<li class="list-inline-item"><a href="{{$leader->linkedin}}"><img src="img/social_icons/linkedin.png"
+											class="img-fluid" /></a></li>
 							</ul>
 							@endif
 						</div>
@@ -647,8 +649,7 @@
 								University of Nigeria, Nsukka.</p>
 
 							<ul class="list-inline mt-2">
-								<li class="list-inline-item"><a
-										href="https://www.linkedin.com/in/adaobi-ekweanya-acca-51124211/"><img
+								<li class="list-inline-item"><a href="https://www.linkedin.com/in/adaobi-ekweanya-acca-51124211/"><img
 											src="img/social_icons/linkedin.png" class="img-fluid" /></a></li>
 							</ul>
 						</div>
@@ -703,8 +704,7 @@
 							</p>
 
 							<ul class="list-inline mt-2">
-								<li class="list-inline-item"><a
-										href="https://www.linkedin.com/in/babatunde-dada-84472575/"><img
+								<li class="list-inline-item"><a href="https://www.linkedin.com/in/babatunde-dada-84472575/"><img
 											src="img/social_icons/linkedin.png" class="img-fluid" /></a></li>
 							</ul>
 						</div>
@@ -717,8 +717,7 @@
 		</div>
 	</div>
 
-	<div class="modal fade" id="abayomi" tabindex="-1" role="dialog" aria-labelledby="exec_infoLabel"
-		aria-hidden="true">
+	<div class="modal fade" id="abayomi" tabindex="-1" role="dialog" aria-labelledby="exec_infoLabel" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered leadership_modal" role="document">
 			<div class="modal-content">
 				<div class="modal-header border-0 pb-0">
@@ -770,8 +769,7 @@
 							</p>
 
 							<ul class="list-inline mt-2">
-								<li class="list-inline-item"><a
-										href="https://www.linkedin.com/in/abayomi-awobokun-636b5832/"><img
+								<li class="list-inline-item"><a href="https://www.linkedin.com/in/abayomi-awobokun-636b5832/"><img
 											src="img/social_icons/linkedin.png" class="img-fluid" /></a></li>
 							</ul>
 						</div>
@@ -825,8 +823,7 @@
 							</p>
 
 							<ul class="list-inline mt-2">
-								<li class="list-inline-item"><a
-										href="https://www.linkedin.com/in/kelvin-orogun-247ab838/"><img
+								<li class="list-inline-item"><a href="https://www.linkedin.com/in/kelvin-orogun-247ab838/"><img
 											src="img/social_icons/linkedin.png" class="img-fluid" /></a></li>
 							</ul>
 						</div>
@@ -883,8 +880,7 @@
 								Automobile.</p>
 
 							<ul class="list-inline mt-2">
-								<li class="list-inline-item"><a
-										href="https://www.linkedin.com/in/adewumi-mobolaji-60590314/"><img
+								<li class="list-inline-item"><a href="https://www.linkedin.com/in/adewumi-mobolaji-60590314/"><img
 											src="img/social_icons/linkedin.png" class="img-fluid" /></a></li>
 							</ul>
 						</div>
@@ -905,8 +901,7 @@
 				<form>
 					<div class="form-group mb-0" style="position: relative">
 						<input type="text" class="rounded-0 form-control" id="search" placeholder="search">
-						<img src="img/search_bar_icon.png" alt="search icon"
-							style="position: absolute; right: 10px; top: 10px;" />
+						<img src="img/search_bar_icon.png" alt="search icon" style="position: absolute; right: 10px; top: 10px;" />
 					</div>
 				</form>
 			</div>
