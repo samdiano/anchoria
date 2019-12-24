@@ -1,5 +1,6 @@
 <?php
 
+use App\MutualFundPage;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,6 +19,7 @@ class DatabaseSeeder extends Seeder
             LeadershipPageTableSeeder::class,
             LiquidityTableSeeder::class,
             MultiFamilyTableSeeder::class,
+            MutualFundPageSeeder::class,
             OpenAccountTableSeeder::class,
             PortfolioTableSeeder::class,
             ResearchTableSeeder::class,
