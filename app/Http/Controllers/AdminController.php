@@ -1188,7 +1188,7 @@ class AdminController extends Controller
     public function mutualFund()
     {
         $mutual = MutualFundPage::find(1);
-        return view('admin.mutualfunds.page', ['contact' => $mutual]);
+        return view('admin.MutualFunds.page', ['contact' => $mutual]);
     }
     /**
      * Update Landing Page
